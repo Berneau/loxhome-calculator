@@ -1,0 +1,89 @@
+.lxhm-wrapper {
+  width: 100%;
+}
+
+.lxhm-wrapper .material-icons {
+  cursor: pointer;
+}
+
+.lxhm-wrapper select,
+.lxhm-wrapper button {
+  font-family: Arial, Helvetica, sans-serif;
+  transition: border-color .3s;
+  border-color: #747474;
+  color: #747474;
+}
+
+.lxhm-wrapper select:hover,
+.lxhm-wrapper select:focus,
+.lxhm-wrapper button:hover,
+.lxhm-wrapper button:focus {
+  border-color: #000;
+  outline: none;
+}
+
+.lxhm-wrapper button {
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.lxhm-wrapper .lxhm-divider {
+  border-top: 1px solid #d2d2d2;
+  height: 0px;
+  width: 100%;
+}
+
+.lxhm-section {
+  padding: 10px 0;
+  margin: 10px 0;
+  display: flex;
+}
+
+.lxhm-section.lxhm-right {
+  justify-content: flex-end;
+}
+
+.lxhm-section.lxhm-column {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.lxhm-section.lxhm-row {
+  flex-direction: row;
+  align-items: center;
+}
+
+.lxhm-container .title {
+  width: 125px;
+}
+
+.lxhm-card {
+  border: 1px solid #d2d2d2;
+  border-radius: 5px;
+  color: #747474;
+  width: 100%;
+}
+
+.lxhm-card .lxhm-header {
+  justify-content: space-between;
+  flex-direction: row;
+  display: flex;
+  padding: 15px;
+  width: 100%;
+}
+
+.lxhm-card .lxhm-title,
+.lxhm-card .lxhm-action {
+  align-items: center;
+  display: flex;
+}
+
+.lxhm-card .lxhm-title h3 {
+  margin: 0;
+}
+
+.lxhm-card .lxhm-body {
+  padding: 15px;
+}
