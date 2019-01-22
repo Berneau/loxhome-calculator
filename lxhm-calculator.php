@@ -31,5 +31,5 @@
   }
   
   require_once LXHM_PLUGIN_DIR . '/shortcode.php';
-  require_once LXHM_PLUGIN_DIR . '/ajax/add-to-room.php';
+  require_once LXHM_PLUGIN_DIR . '/ajax/add-room.php';
 ?>

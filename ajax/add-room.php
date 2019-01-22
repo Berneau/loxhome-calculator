@@ -1,6 +1,6 @@
 <?php
 function lxhm_add_room(){
-  echo 'Test';
+  echo file_get_contents(LXHM_PLUGIN_DIR . '/templates/room.template.php');
   wp_die();
 }
 
