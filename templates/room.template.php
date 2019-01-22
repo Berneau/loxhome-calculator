@@ -14,7 +14,7 @@
       </select>
     </div>
     <div class="lxhm-action">
-      <i class="material-icons">keyboard_arrow_down</i>
+      <i class="material-icons lxhm-delete-room">delete</i>
     </div>
     
   </div>
@@ -26,11 +26,11 @@
     <div class="lxhm-section lxhm-row">
       <span class="title">Artikel</span>
       <div class="action">
-        <button id="lxhm-add-article">Hinzufügen</button>
+        <button class="lxhm-add-article">Hinzufügen</button>
       </div>
     </div>
     
-    <div class="lxhm-section lxhm-column">
+    <div class="lxhm-section lxhm-column lxhm-article-container">
       
     </div>
     

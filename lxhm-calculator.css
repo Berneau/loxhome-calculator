@@ -29,6 +29,12 @@
   padding: 6px;
 }
 
+.lxhm-wrapper button:disabled {
+  border-color: #e0dede;
+  cursor: default;
+  color: #e0dede;
+}
+
 .lxhm-wrapper .lxhm-divider {
   border-top: 1px solid #d2d2d2;
   height: 0px;
@@ -55,7 +61,8 @@
   align-items: center;
 }
 
-.lxhm-container .title {
+.lxhm-section .title {
+  color: #5096da;
   width: 125px;
 }
 

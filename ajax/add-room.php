@@ -1,5 +1,5 @@
 <?php
-function lxhm_add_room(){
+function lxhm_add_room() {
   echo file_get_contents(LXHM_PLUGIN_DIR . '/templates/room.template.php');
   wp_die();
 }

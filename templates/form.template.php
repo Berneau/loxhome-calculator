@@ -14,12 +14,7 @@
     </div>
   </div>
   
-  
-  
-  <div class="lxhm-divider"></div>
-  
-  
-  
+
   <div class="lxhm-container">
     <div class="lxhm-section lxhm-row">
       
@@ -29,14 +24,10 @@
       </div>
       
     </div>
-    <div class="lxhm-section lxhm-column" id="room-container">
+    <div class="lxhm-section lxhm-column" id="lxhm-room-container">
     
     </div>
   </div>
-  
-  
-  
-  <div class="lxhm-divider"></div>
   
   
   
@@ -49,10 +40,6 @@
     
     </div>
   </div>
-  
-  
-  
-  <div class="lxhm-divider"></div>
   
   
   

@@ -25,11 +25,12 @@
     wp_enqueue_script( 'ajaxHandle' );
     wp_localize_script( 'ajaxHandle', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
     
-    wp_enqueue_script( 'lxhm-script', LXHM_PLUGIN_URL . '/lxhm-calculator.js', array(), null );
+    wp_enqueue_script( 'lxhm-script', LXHM_PLUGIN_URL . '/lxhm-calculator.js', array(), false, true );
     wp_enqueue_style( 'lxhm-style', LXHM_PLUGIN_URL . '/lxhm-calculator.css', array(), null );
     wp_enqueue_style( 'lxhm-icon-font', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null);
   }
   
   require_once LXHM_PLUGIN_DIR . '/shortcode.php';
   require_once LXHM_PLUGIN_DIR . '/ajax/add-room.php';
+  require_once LXHM_PLUGIN_DIR . '/ajax/add-article.php';
 ?>
