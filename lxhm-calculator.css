@@ -6,17 +6,51 @@
   cursor: pointer;
 }
 
+.lxhm-wrapper .lxhm-error-message {
+  background-color: #e57373;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0 15px;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  color: #fff;
+}
+
+.lxhm-delete-room,
+.lxhm-delete-article {
+  transition: color .3s;
+}
+
+.lxhm-delete-room:hover,
+.lxhm-delete-article:hover {
+  color: #e57373;
+}
+
 .lxhm-wrapper select,
 .lxhm-wrapper button {
   font-family: Arial, Helvetica, sans-serif;
   transition: border-color .3s;
-  border-color: #747474;
-  color: #747474;
+  border-color: #888;
+  color: #888;
+}
+
+.lxhm-wrapper select.invalid {
+  border-color: #e57373;
+}
+
+.lxhm-wrapper select.invalid:hover,
+.lxhm-wrapper select.invalid:focus {
+  border-color: #b71c1c;
+}
+
+.lxhm-wrapper select.invalid:focus {
+  outline: none;
 }
 
 .lxhm-wrapper select:hover,
-.lxhm-wrapper select:focus,
 .lxhm-wrapper button:hover,
+.lxhm-wrapper select:focus,
 .lxhm-wrapper button:focus {
   border-color: #000;
   outline: none;
@@ -47,10 +81,6 @@
   display: flex;
 }
 
-.lxhm-section.lxhm-right {
-  justify-content: flex-end;
-}
-
 .lxhm-section.lxhm-column {
   justify-content: center;
   flex-direction: column;
@@ -70,7 +100,7 @@
   border: 1px solid #d2d2d2;
   margin-bottom: 15px;
   border-radius: 5px;
-  color: #747474;
+  color: #888;
   width: 100%;
 }
 
@@ -94,4 +124,19 @@
 
 .lxhm-card .lxhm-body {
   padding: 15px;
+}
+
+.lxhm-article {
+  justify-content: space-between;
+  margin: 5px 0;
+  display: flex;
+}
+
+.lxhm-article .lxhm-actions {
+  align-items: center;
+  display: flex;
+}
+
+.lxhm-article select {
+  margin-right: 5px;
 }

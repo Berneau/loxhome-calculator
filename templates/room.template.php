@@ -1,9 +1,9 @@
-<div class="lxhm-card">
+<div class="lxhm-card lxhm-room">
   
   <div class="lxhm-header">
     
     <div class="lxhm-title">
-      <select>
+      <select name="lxhm-room-name" required>
         <option disabled selected>Zimmerart</option>
         <option>Wohnzimmer</option>
         <option>Küche</option>
@@ -26,7 +26,7 @@
     <div class="lxhm-section lxhm-row">
       <span class="title">Artikel</span>
       <div class="action">
-        <button class="lxhm-add-article">Hinzufügen</button>
+        <button type="button" class="lxhm-add-article">Hinzufügen</button>
       </div>
     </div>
     

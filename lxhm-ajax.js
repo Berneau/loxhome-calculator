@@ -37,7 +37,6 @@ jQuery(document).ready( function() {
         action: 'lxhm_add_article'
       },
       success: function(response) {
-        console.log(this, response, elem);
         elem.parents('.lxhm-card').find('.lxhm-article-container').append(response);
         elem.attr('disabled', false);
       },
@@ -48,3 +47,7 @@ jQuery(document).ready( function() {
   });
 
 });
+
+function lxhmGetProducts(formData) {
+  console.log(formData);
+}
