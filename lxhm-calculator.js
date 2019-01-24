@@ -19,7 +19,7 @@ jQuery(document).ready( function() {
 
 function lxhmGetFormInfo() {
   var formData = {
-    serverType: lxhmGetServertype(),
+    serverType: lxhmGetServerType(),
     rooms: lxhmGetRooms()
   };
   
@@ -31,7 +31,7 @@ function lxhmGetFormInfo() {
   lxhmGetProducts(formData);
 }
 
-function lxhmGetServertype() {
+function lxhmGetServerType() {
   return jQuery('select[name="lxhm-server-type"]').val() || null;
 }
 

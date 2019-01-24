@@ -6,13 +6,17 @@
   cursor: pointer;
 }
 
+.lxhm-wrapper #lxhm-error-container {
+  height: 50px;
+}
+
 .lxhm-wrapper .lxhm-error-message {
   background-color: #e57373;
   align-items: center;
   border-radius: 5px;
   padding: 0 15px;
   display: flex;
-  height: 50px;
+  height: 100%;
   width: 100%;
   color: #fff;
 }
