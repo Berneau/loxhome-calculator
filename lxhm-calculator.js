@@ -15,6 +15,10 @@ jQuery(document).ready( function() {
   jQuery('body').on('change', 'select[required]', function() {
     lxhmInputValid(this);
   });
+  
+  jQuery('body').on('change', 'select[name="lxhm-article-type"]', function() {
+    lxhmGetArticleOptions(this);
+  })
 });
 
 function lxhmGetFormInfo() {

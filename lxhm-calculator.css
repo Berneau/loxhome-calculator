@@ -67,7 +67,8 @@
   padding: 6px;
 }
 
-.lxhm-wrapper button:disabled {
+.lxhm-wrapper button:disabled,
+.lxhm-wrapper select:disabled {
   border-color: #e0dede;
   cursor: default;
   color: #e0dede;

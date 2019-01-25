@@ -16,19 +16,20 @@
     
     <select name="lxhm-article-type" required>
       <option disabled selected>Artikel</option>
-      <option>Jalousie</option>
-      <option>Fenster</option>
-      <option>Innentür</option>
-      <option>Raumregelung</option>
-      <option>Speaker</option>
+      <option value="jalousie">Jalousie</option>
+      <option value="fenster">Fenster</option>
+      <option value="innentuer">Innentür</option>
+      <option value="raumregelung">Raumregelung</option>
+      <option value="speaker">Speaker</option>
+      <option value="gehaeuse_fuer_betonbau">Gehäuse für Betonbau</option>
+      <option value="gehaeuse_fuer_trockenbau">Gehäuse für Trockenbau</option>
+      <option value="universalbeleuchtung">Universalbeleuchtung</option>
+      <option value="loxone_lights">Loxone Lights</option>
+      <option value="zentral">Zentral</option>
     </select>
     
     <select name="lxhm-article-option">
       <option disabled selected>Optionen</option>
-      <option>Verkabelt & Bestehend</option>
-      <option>Rohrmotor</option>
-      <option>Shading Activator</option>
-      <option>Keine</option>
     </select>
   </div>
   

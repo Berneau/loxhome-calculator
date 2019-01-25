@@ -33,4 +33,6 @@
   require_once LXHM_PLUGIN_DIR . '/shortcode.php';
   require_once LXHM_PLUGIN_DIR . '/ajax/add-room.php';
   require_once LXHM_PLUGIN_DIR . '/ajax/add-article.php';
+  require_once LXHM_PLUGIN_DIR . '/ajax/calculate-rooms.php';
+  require_once LXHM_PLUGIN_DIR . '/ajax/get-options.php';
 ?>

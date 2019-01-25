@@ -1,0 +1,3 @@
+<li>
+  <?= $jsonData->serverType; ?>
+</li>
