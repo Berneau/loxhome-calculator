@@ -25,7 +25,9 @@ function lxhm_calculate_rooms() {
     $overall_skus[$key] = $amount;
   }
   
-  print_r($overall_skus);
+  $products = lxhm_get_products_by_skus($overall_skus);
+  
+  print_r($products);
   
   wp_die();
 }
@@ -76,28 +78,49 @@ function lxhm_loop_over_rooms($rooms) {
 }
 
 
+function lxhm_get_products_by_skus($skus) {
+  $html = '';
+  $sum = 0.00;
+  
+  foreach ($skus as $key => $value) {
+    // workaround for get product by sku
+    $product_id = wc_get_product_id_by_sku($key);
+    $product = wc_get_product($product_id);
+    
+    // add price of product to overall sum
+    $sum += ($product->price * $value);
+    $html .= lxhm_build_product_template($product, $value);
+  }
+  
+  $html .= lxhm_build_sum_template($sum);
+  
+  return $html;
+}
 
+function lxhm_build_product_template($product, $amount) {
+  if (!$product) return null;
+  $html = '';
+  
+  $product->lxhm_thumbnail_url = wp_get_attachment_image_src($product->image_id, 'thumbnail');
+  $full_amount = $amount * $product->price;
+  
+  ob_start();
+  include LXHM_PLUGIN_DIR . '/templates/product.template.php';
+  $html .= ob_get_contents();
+  ob_end_clean();
+  
+  return $html;
+}
 
+function lxhm_build_sum_template($sum) {
+  $html = '<li class="lxhm-sum-product"><div class="lxhm-product-spacer"></div>';
+  $html .= '<div>';
+  $html .= $sum;
+  $html .= '€</div>';
+  $html .= '</li>';
+  return $html;
+}
 
-
-
-
-
-
-
-
-
-
-// function lxhmGetProductsFromWC() {
-//   return wc_get_products(array());
-// }
-// 
-// function lxhmGetProductTemplate() {
-//   ob_start();
-//   include LXHM_PLUGIN_DIR . '/templates/product.template.php';
-//   $html .= ob_get_contents();
-//   ob_end_clean();
-// }
 
 add_action( "wp_ajax_lxhm_calculate_rooms", "lxhm_calculate_rooms" );
 add_action( "wp_ajax_nopriv_lxhm_calculate_rooms", "lxhm_calculate_rooms" );

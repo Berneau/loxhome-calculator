@@ -28,9 +28,8 @@
         </div>
         
       </div>
-      <div class="lxhm-section lxhm-column" id="lxhm-room-container"></div>
+      <ul class="lxhm-section lxhm-column" id="lxhm-room-container"></ul>
     </div>
-    
     
     
     <div class="lxhm-container">
@@ -41,6 +40,7 @@
         </div>
       
       </div>
+      <div class="lxhm-section lxhm-column" id="lxhm-product-container"></div>
     </div>
     
     

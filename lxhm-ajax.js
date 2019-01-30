@@ -4,7 +4,7 @@ jQuery(document).ready( function() {
     
     var elem = jQuery(this);
     if (elem.is(':disabled')) return;
-    elem.attr('disabled', true);
+    lxhmChangeElemState(elem);
     
     jQuery.ajax({
       url: ajax_object.ajaxurl,
@@ -14,10 +14,10 @@ jQuery(document).ready( function() {
       },
       success: function(response) {
         jQuery('#lxhm-room-container').append(response);
-        elem.attr('disabled', false);
+        lxhmChangeElemState(elem, false);
       },
       error: function() {
-        elem.attr('disabled', false);
+        lxhmChangeElemState(elem, false);
       }
     });
   });
@@ -26,7 +26,7 @@ jQuery(document).ready( function() {
     
     var elem = jQuery(this);
     if (elem.is(':disabled')) return;
-    elem.attr('disabled', true);
+    lxhmChangeElemState(elem);
     
     jQuery.ajax({
       url: ajax_object.ajaxurl,
@@ -36,10 +36,10 @@ jQuery(document).ready( function() {
       },
       success: function(response) {
         elem.parents('.lxhm-card').find('.lxhm-article-container').append(response);
-        elem.attr('disabled', false);
+        lxhmChangeElemState(elem, false);
       },
       error: function() {
-        elem.attr('disabled', false);
+        lxhmChangeElemState(elem, false);
       }
     });
   });
@@ -50,7 +50,7 @@ function lxhmGetArticleOptions(elem) {
   
   // temporarely disable option select
   var optionsSelect = jQuery(elem).parents('.lxhm-article').find('select[name="lxhm-article-option"]');
-  optionsSelect.attr('disabled', true);
+  lxhmChangeElemState(optionsSelect);
   
   jQuery.ajax({
     url: ajax_object.ajaxurl,
@@ -61,18 +61,17 @@ function lxhmGetArticleOptions(elem) {
     },
     success: function(response) {
       optionsSelect.html(response);
-      optionsSelect.attr('disabled', false);
+      lxhmChangeElemState(optionsSelect, false);
     },
     error: function(err) {
       console.log('error', err);
-      optionsSelect.attr('disabled', false);
+      lxhmChangeElemState(optionsSelect, false);
     }
   });
 }
 
 
 function lxhmGetProducts(formData) {
-  // console.log(JSON.stringify(formData));
   
   jQuery.ajax({
     url: ajax_object.ajaxurl,
@@ -82,10 +81,15 @@ function lxhmGetProducts(formData) {
       formData: JSON.stringify(formData)
     },
     success: function(response) {
+      jQuery('#lxhm-product-container').html(response);
       console.log(response);
     },
     error: function(err) {
       console.log('error', err);
     }
   });
+}
+
+function lxhmChangeElemState(elem, disable = true) {
+  elem.attr('disabled', disable);
 }

@@ -1,15 +1,4 @@
 <?php
-  // define('100038', 14);
-  // define('100114', 120);
-  // define('100283', 20);
-  // define('100218', 90);
-  // define('100242', 6);
-  // define('100002', 8);
-  // define('200110', 12);
-  // define('100029', 14);
-  // define('rgbw-24v-dimmer', 4);
-  // define('led-spot-ww', 10);
-  
   function lxhm_get_amount_by_slots($sku, $amount) {
     $slots = array(
       '100038' => 14,
