@@ -34,6 +34,9 @@ function lxhmGetFormInfo() {
   if (!lxhmInputsValid()) {
     jQuery('#lxhm-error-container').html('<div class="lxhm-error-message">Bitte füllen Sie alle benötigten Felder aus.</div>');
     return false;
+  } else {
+    jQuery('#lxhm-error-container').html('');
+    return true;
   }
   
   lxhmGetProducts(formData);
