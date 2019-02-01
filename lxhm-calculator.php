@@ -27,7 +27,7 @@
     
     wp_enqueue_script( 'lxhm-script', LXHM_PLUGIN_URL . '/lxhm-calculator.js', array(), false, true );
     wp_enqueue_style( 'lxhm-style', LXHM_PLUGIN_URL . '/lxhm-calculator.css', array(), null );
-    wp_enqueue_style( 'lxhm-icon-font', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null);
+    // wp_enqueue_style( 'lxhm-icon-font', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null);
   }
   
   require_once LXHM_PLUGIN_DIR . '/shortcode.php';

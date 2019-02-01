@@ -4,6 +4,10 @@ jQuery(document).ready( function() {
     jQuery(this).parents('.lxhm-card').remove();
   });
   
+  jQuery('body').on('click', '.lxhm-delete-article', function() {
+    jQuery(this).parents('.lxhm-article').remove();
+  });
+  
   jQuery('body').on('click', '#lxhm-calculate', function() {
     lxhmGetFormInfo();
   });

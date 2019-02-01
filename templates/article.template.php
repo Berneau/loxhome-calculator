@@ -34,6 +34,9 @@
   </div>
   
   <div class="actions">
-    <i class="material-icons lxhm-delete-article">delete</i>
+    <svg class="lxhm-icon lxhm-delete-article" viewBox="0 0 24 24">
+      <path class="lxhm_delete_lid" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19" />
+      <path d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+    </svg>
   </div>
 </div>

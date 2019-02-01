@@ -2,8 +2,31 @@
   width: 100%;
 }
 
-.lxhm-wrapper .material-icons {
+.lxhm-wrapper .lxhm-icon {
   cursor: pointer;
+  height: 24px;
+  width: 24px;
+  fill: #888;
+}
+
+.lxhm-delete-room,
+.lxhm-delete-article {
+  transition: fill .3s;
+}
+
+.lxhm-delete-room:hover,
+.lxhm-delete-article:hover {
+  fill: #e57373;
+}
+
+.lxhm_delete_lid {
+  transform-origin: top right;
+  transition: transform .3s;
+}
+
+.lxhm-delete-room:hover .lxhm_delete_lid,
+.lxhm-delete-article:hover .lxhm_delete_lid {
+  transform: rotate(10deg);
 }
 
 .lxhm-wrapper #lxhm-error-container {
@@ -19,16 +42,6 @@
   height: 100%;
   width: 100%;
   color: #fff;
-}
-
-.lxhm-delete-room,
-.lxhm-delete-article {
-  transition: color .3s;
-}
-
-.lxhm-delete-room:hover,
-.lxhm-delete-article:hover {
-  color: #e57373;
 }
 
 .lxhm-wrapper select,
