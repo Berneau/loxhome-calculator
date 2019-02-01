@@ -27,8 +27,7 @@ function lxhm_calculate_rooms() {
   
   $products = lxhm_get_products_by_skus($overall_skus);
   
-  print_r($products);
-  
+  echo json_encode($products);
   wp_die();
 }
 
@@ -81,6 +80,7 @@ function lxhm_loop_over_rooms($rooms) {
 function lxhm_get_products_by_skus($skus) {
   $html = '';
   $sum = 0.00;
+  $products = array();
   
   foreach ($skus as $key => $value) {
     // workaround for get product by sku
@@ -90,11 +90,19 @@ function lxhm_get_products_by_skus($skus) {
     // add price of product to overall sum
     $sum += ($product->price * $value);
     $html .= lxhm_build_product_template($product, $value);
+    
+    $simple_product = new stdClass();
+    $simple_product->id = $product_id;
+    $simple_product->amount = $value;
+    array_push($products, $simple_product);
   }
   
   $html .= lxhm_build_sum_template($sum);
   
-  return $html;
+  $return_obj = new stdClass();
+  $return_obj->html = $html;
+  $return_obj->products = $products;
+  return $return_obj;
 }
 
 function lxhm_build_product_template($product, $amount) {

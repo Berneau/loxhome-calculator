@@ -44,6 +44,28 @@ jQuery(document).ready( function() {
     });
   });
 
+  jQuery('body').on('click', '#lxhm-add-to-cart', function() {
+    
+    var elem = jQuery(this);
+    if (elem.is(':disabled')) return;
+    lxhmChangeElemState(elem);
+    
+    jQuery.ajax({
+      url: ajax_object.ajaxurl,
+      type: 'POST',
+      data: { 
+        action: 'lxhm_add_to_cart',
+        products: window.lxhmProducts
+      },
+      success: function(response) {
+        console.log(response);
+        lxhmChangeElemState(elem, false);
+      },
+      error: function() {
+        lxhmChangeElemState(elem, false);
+      }
+    });
+  });
 });
 
 function lxhmGetArticleOptions(elem) {
@@ -81,8 +103,13 @@ function lxhmGetProducts(formData) {
       formData: JSON.stringify(formData)
     },
     success: function(response) {
-      jQuery('#lxhm-product-container').html(response);
-      console.log(response);
+      var parsedResponse = JSON.parse(response);
+      
+      // temporarely save to window obj
+      console.log(parsedResponse.products);
+      window.lxhmProducts = parsedResponse.products;
+      
+      jQuery('#lxhm-product-container').html(parsedResponse.html);
     },
     error: function(err) {
       console.log('error', err);
