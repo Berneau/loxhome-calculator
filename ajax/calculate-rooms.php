@@ -49,7 +49,16 @@ function lxhm_loop_over_rooms($rooms) {
   foreach ($rooms as $room) {
     foreach ($room->articles as $article) {
   
+      // TODO: if at least 1 Jalousie -> add wetterstation
+      // TODO: slots from 8 and 12 are only available to each seperate room
+      // TODO: if 14 or 15 is selected, requires at least one 10, except 16 is selected
+      // TODO: change product type for each exceeded step for 17( 4/8/12/16/20)
+      // TODO: for each ten 27 spots, add 1 channel
+      // TODO: if either musik, lights or heating in room, add one motion detector
+      // TODO: calculate speakers -> probably not set as "new"
+      
       $requirements = lxhm_request_skus_from_article($article->type, $article->option);
+      
       
       // handle slots needed
       for ($i = 0; $i < sizeof($requirements->slots); $i++) {

@@ -106,7 +106,6 @@ function lxhmGetProducts(formData) {
       var parsedResponse = JSON.parse(response);
       
       // temporarely save to window obj
-      console.log(parsedResponse.products);
       window.lxhmProducts = parsedResponse.products;
       
       jQuery('#lxhm-product-container').html(parsedResponse.html);

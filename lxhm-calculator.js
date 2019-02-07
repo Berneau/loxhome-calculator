@@ -36,8 +36,9 @@ function lxhmGetFormInfo() {
     return false;
   } else {
     jQuery('#lxhm-error-container').html('');
-    return true;
   }
+  
+  console.log(formData);
   
   lxhmGetProducts(formData);
 }
