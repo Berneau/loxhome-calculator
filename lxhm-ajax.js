@@ -13,7 +13,7 @@ jQuery(document).ready( function() {
         action: 'lxhm_add_room'
       },
       success: function(response) {
-        jQuery('#lxhm-room-container').append(response);
+        jQuery('#lxhm-room-container').prepend(response);
         lxhmChangeElemState(elem, false);
       },
       error: function() {
@@ -35,7 +35,7 @@ jQuery(document).ready( function() {
         action: 'lxhm_add_article'
       },
       success: function(response) {
-        elem.parents('.lxhm-card').find('.lxhm-article-container').append(response);
+        elem.parents('.lxhm-card').find('.lxhm-article-container').prepend(response);
         lxhmChangeElemState(elem, false);
       },
       error: function() {
