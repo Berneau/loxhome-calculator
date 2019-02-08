@@ -23,10 +23,6 @@ jQuery(document).ready( function() {
   jQuery('body').on('change', 'select[name="lxhm-article-type"]', function() {
     lxhmGetArticleOptions(this);
   })
-  
-  // jQuery('body').on('click', '#lxhm-cart-link', function() {
-  //   window.location = 'http://localhost/loxhome/index.php/cart/';
-  // });
 });
 
 function lxhmGetFormInfo() {
