@@ -29,10 +29,6 @@
   transform: rotate(10deg);
 }
 
-.lxhm-wrapper #lxhm-error-container {
-  height: 50px;
-}
-
 .lxhm-wrapper .lxhm-error-message {
   background-color: #e57373;
   align-items: center;
@@ -213,4 +209,71 @@
 .lxhm-sum-product {
   font-weight: bold;
   color: #5096da;
+}
+
+#lxhm-toast-element {
+  background-color: #363839;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  border-radius: 4px;
+  position: fixed;
+  display: flex;
+  padding: 15px;
+  right: 30px;
+  color: #fff;
+  z-index: 99;
+  top: 100px;
+}
+
+#lxhm-toast-element.active {
+  -webkit-animation: fadein .5s, fadeout .5s 2.5s;
+  animation: fadein .5s, fadeout .5s 2.5s;
+  visibility: visible;
+}
+
+#lxhm-toast-element .error { fill: #e57373; }
+#lxhm-toast-element .success { fill: #7ec05f; }
+
+#lxhm-toast-element svg {
+  margin: 0 5px 2px 0;
+  height: 18px;
+  width: 18px;
+}
+
+/* Animations to fade the toast in and out */
+@-webkit-keyframes fadein {
+  from {right: 0; opacity: 0;} 
+  to {right: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {right: 0; opacity: 0;}
+  to {right: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {right: 30px; opacity: 1;} 
+  to {right: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {right: 30px; opacity: 1;}
+  to {right: 0; opacity: 0;}
+}
+
+#lxhm-cart-link {
+  margin-left: 5px;
+  display: none;
+}
+
+#lxhm-cart-link.visible {
+  display: inline;
+}
+
+#lxhm-cart-link svg {
+  margin-bottom: -2px;
+  height: 14px;
+  width: 14px;
+  fill: #888;
 }

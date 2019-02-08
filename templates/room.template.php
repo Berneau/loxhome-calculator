@@ -27,9 +27,8 @@
   <div class="lxhm-body">
     
     <div class="lxhm-section lxhm-row">
-      <span class="title">Artikel</span>
       <div class="action">
-        <button type="button" class="lxhm-add-article">Hinzufügen</button>
+        <button type="button" class="lxhm-add-article">Artikel Hinzufügen</button>
       </div>
     </div>
     

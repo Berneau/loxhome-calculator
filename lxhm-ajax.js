@@ -48,6 +48,12 @@ jQuery(document).ready( function() {
     
     var elem = jQuery(this);
     if (elem.is(':disabled')) return;
+    
+    if (!window.lxhmProducts) {
+      lxhmToast('error', 'Bitte kalkulieren Sie zuerst Ihre Auswahl');
+      return false;
+    }
+    
     lxhmChangeElemState(elem);
     
     jQuery.ajax({
@@ -57,12 +63,14 @@ jQuery(document).ready( function() {
         action: 'lxhm_add_to_cart',
         products: window.lxhmProducts
       },
-      success: function(response) {
-        console.log(response);
+      success: function() {
         lxhmChangeElemState(elem, false);
+        lxhmToast('success', 'Artikel zum Warenkorb hinzugefügt');
+        jQuery('#lxhm-cart-link').addClass('visible');
       },
       error: function() {
         lxhmChangeElemState(elem, false);
+        lxhmToast('error', 'Fehler beim Verarbeiten der Artikel');
       }
     });
   });
