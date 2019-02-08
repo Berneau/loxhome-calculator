@@ -24,9 +24,9 @@ jQuery(document).ready( function() {
     lxhmGetArticleOptions(this);
   })
   
-  jQuery('body').on('click', '#lxhm-cart-link', function() {
-    window.location = 'http://localhost/loxhome/index.php/cart/';
-  });
+  // jQuery('body').on('click', '#lxhm-cart-link', function() {
+  //   window.location = 'http://localhost/loxhome/index.php/cart/';
+  // });
 });
 
 function lxhmGetFormInfo() {

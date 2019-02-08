@@ -29,23 +29,28 @@
   transform: rotate(10deg);
 }
 
-.lxhm-wrapper .lxhm-error-message {
-  background-color: #e57373;
-  align-items: center;
-  border-radius: 5px;
-  padding: 0 15px;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  color: #fff;
-}
-
 .lxhm-wrapper select,
 .lxhm-wrapper button {
   font-family: Arial, Helvetica, sans-serif;
   transition: border-color .3s;
   border-color: #888;
   color: #888;
+}
+
+.lxhm-wrapper .lxhm-link-button {
+  font-family: Arial, Helvetica, sans-serif;
+  transition: border-color .3s;
+  border: 1px solid #888;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 6px;
+  color: #888;
+}
+
+.lxhm-wrapper .lxhm-link-button:hover,
+.lxhm-wrapper .lxhm-link-button:focus {
+  border-color: #000;
+  color: #000;
 }
 
 .lxhm-wrapper select.invalid {

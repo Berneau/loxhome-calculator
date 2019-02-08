@@ -111,11 +111,11 @@ function lxhmGetProducts(formData) {
       formData: JSON.stringify(formData)
     },
     success: function(response) {
+      // console.log(response);
       var parsedResponse = JSON.parse(response);
       
       // temporarely save to window obj
       window.lxhmProducts = parsedResponse.products;
-      
       jQuery('#lxhm-product-container').html(parsedResponse.html);
     },
     error: function(err) {
