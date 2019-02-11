@@ -2,11 +2,18 @@
 include_once LXHM_PLUGIN_DIR . '/includes/article-options.php';
 
 function lxhm_get_options() {
+  $serverType = $_POST['serverType'];
   $article = $_POST['article'];
-  if (!$article) return;
   
-  $options = lxhmGetArticleOptions($article);
-  $html = '';
+  if (!$article) return;
+  if (!$serverType) return;
+  
+  $options;
+  
+  if ($serverType == 'miniserver') $options = lxhmGetMiniserverOptions($article);
+  elseif ($serverType == 'miniserver-go') $options = lxhmGetMiniserverGoOptions($article);
+  
+  $html = '<option value="null">Option wählen</option>';
 
   for ($i = 0; $i < sizeof($options); $i++) {
     $html .= '<option value="';

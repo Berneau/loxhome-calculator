@@ -22,7 +22,17 @@ jQuery(document).ready( function() {
   
   jQuery('body').on('change', 'select[name="lxhm-article-type"]', function() {
     lxhmGetArticleOptions(this);
-  })
+  });
+  
+  jQuery('body').on('change', 'select[name="lxhm-server-type"]', function() {
+    lxhmEnableSelections();
+    
+    lxhmResetArticleOptions();
+    
+    jQuery('select[name="lxhm-article-type"]').each(function() {
+      lxhmGetArticleOptions(this);
+    });
+  });
 });
 
 function lxhmGetFormInfo() {
@@ -77,6 +87,16 @@ function lxhmGetArticle(articleHtml) {
     type: jQuery(articleHtml).find('select[name="lxhm-article-type"]').val(),
     option: jQuery(articleHtml).find('select[name="lxhm-article-option"]').val()
   }
+}
+
+function lxhmEnableSelections() {
+  jQuery('#lxhm-add-room').prop('disabled', false);
+  jQuery('#lxhm-calculate').prop('disabled', false);
+  jQuery('#lxhm-add-to-cart').prop('disabled', false);
+}
+
+function lxhmResetArticleOptions() {
+  jQuery('select[name="lxhm-article-option"]').val('null');
 }
 
 function lxhmInputsValid() {

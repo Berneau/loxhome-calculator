@@ -82,12 +82,16 @@ function lxhmGetArticleOptions(elem) {
   var optionsSelect = jQuery(elem).parents('.lxhm-article').find('select[name="lxhm-article-option"]');
   lxhmChangeElemState(optionsSelect);
   
+  var serverType = jQuery('select[name="lxhm-server-type"]').val();
+  if (!serverType) return;
+  
   jQuery.ajax({
     url: ajax_object.ajaxurl,
     type: 'POST',
     data: {
       action: 'lxhm_get_options',
-      article: jQuery(elem).val()
+      article: jQuery(elem).val(),
+      serverType: serverType
     },
     success: function(response) {
       optionsSelect.html(response);

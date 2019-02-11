@@ -29,7 +29,7 @@
     </select>
     
     <select name="lxhm-article-option">
-      <option disabled selected>Optionen</option>
+      <option value="null" disabled selected>Optionen</option>
     </select>
   </div>
   
