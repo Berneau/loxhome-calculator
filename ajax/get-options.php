@@ -9,7 +9,6 @@ function lxhm_get_options() {
   if (!$serverType) return;
   
   $options;
-  
   if ($serverType == 'miniserver') $options = lxhmGetMiniserverOptions($article);
   elseif ($serverType == 'miniserver-go') $options = lxhmGetMiniserverGoOptions($article);
   

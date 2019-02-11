@@ -27,7 +27,7 @@ function lxhm_miniserver_path($rooms) {
     foreach ($room->articles as $article) {
       
       // get sku from json file
-      $requirements = lxhm_request_skus_from_article($article->type, $article->option);
+      $requirements = lxhm_request_skus_from_article($article->type, $article->option, 'miniserver');
       
       // handle new additions
       foreach ($requirements->new as $new) {
@@ -74,10 +74,38 @@ function lxhm_miniserver_path($rooms) {
 
 function lxhm_miniserver_go_path($rooms) {
   $skus = array();
-  $temp_slots = array();
+  $temp_slots = 0;
 
   // add servertype sku
   $skus['100139'] = 1;
+  
+  // loop over rooms and articles
+  foreach ($rooms as $room) {
+    foreach ($room->articles as $article) {
+      
+      // get sku from json file
+      $requirements = lxhm_request_skus_from_article($article->type, $article->option, 'miniserver-go');
+      
+      // handle new additions
+      foreach ($requirements->new as $new) {
+        if (!isset($skus[$new->sku])) $skus[$new->sku] = 0;
+        $skus[$new->sku] += ($article->amount * $new->amount);
+      }
+      
+      // handle slot additions
+      foreach ($requirements->slots as $slots) {
+        if (!isset($skus[$slots->sku])) $skus[$slots->sku] = 0;
+        $skus[$slots->sku] += ($article->amount * $slots->amount);
+        $temp_slots++;
+      }
+      
+      // TODO: add extra rules
+    }
+  }
+  
+  // TODO: if more than 120 $temp_slots -> add one more miniserver-go
+  
+  return $skus;
 }
 
 

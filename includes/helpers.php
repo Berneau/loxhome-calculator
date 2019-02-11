@@ -21,8 +21,10 @@ function lxhm_get_slots_by_sku($sku) {
   return $slots[$sku];
 }
 
-function lxhm_request_skus_from_article($type, $option) {
-  $relations_string = file_get_contents(LXHM_PLUGIN_DIR . '/includes/sku-miniserver.json');
+function lxhm_request_skus_from_article($type, $option, $serverType) {
+  $relations_string;
+  if ($serverType == 'miniserver') $relations_string = file_get_contents(LXHM_PLUGIN_DIR . '/includes/sku-miniserver.json');
+  elseif ($serverType == 'miniserver-go') $relations_string = file_get_contents(LXHM_PLUGIN_DIR . '/includes/sku-miniserver-go.json');
   $relations_json = json_decode($relations_string);
   return $relations_json->$type->$option;
 }
