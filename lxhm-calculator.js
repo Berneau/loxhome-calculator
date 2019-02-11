@@ -29,6 +29,8 @@ jQuery(document).ready( function() {
     
     lxhmResetArticleOptions();
     
+    lxhmShowServerWarning();
+    
     jQuery('select[name="lxhm-article-type"]').each(function() {
       lxhmGetArticleOptions(this);
     });
@@ -93,6 +95,10 @@ function lxhmEnableSelections() {
   jQuery('#lxhm-add-room').prop('disabled', false);
   jQuery('#lxhm-calculate').prop('disabled', false);
   jQuery('#lxhm-add-to-cart').prop('disabled', false);
+}
+
+function lxhmShowServerWarning() {
+  jQuery('.lxhm-server-warning').css('display', 'inline-block');
 }
 
 function lxhmResetArticleOptions() {

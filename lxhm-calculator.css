@@ -137,6 +137,18 @@
   display: flex;
 }
 
+.lxhm-server-warning {
+  display: none;
+}
+
+.lxhm-server-warning svg {
+  margin-bottom: -3px;
+  margin-left: 10px;
+  fill: #ffd54f;
+  height: 18px;
+  width: 18px;
+}
+
 .lxhm-card .lxhm-title h3 {
   margin: 0;
 }
