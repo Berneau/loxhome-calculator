@@ -87,10 +87,6 @@
         {
           "sku": "100218",
           "amount": 1
-        },
-        {
-          "sku": "100242",
-          "amount": 1
         }
       ]
     }
@@ -111,10 +107,15 @@
       ]
     },
     "2": {
-      "new": [],
+      "new": [
+        {
+          "sku": "touch-pure",
+          "amount": 1
+        }
+      ],
       "slots": [
         {
-          "sku": "100283",
+          "sku": "100218",
           "amount": 1
         }
       ]
@@ -123,11 +124,16 @@
       "new": [],
       "slots": [
         {
-          "sku": "100218",
+          "sku": "100283",
           "amount": 1
-        },
+        }
+      ]
+    },
+    "4": {
+      "new": [],
+      "slots": [
         {
-          "sku": "100242",
+          "sku": "100218",
           "amount": 1
         }
       ]
@@ -172,24 +178,15 @@
       ]
     }
   },
-  "Speaker": {
+  "speaker": {
     "1": {
       "new": [
         {
           "sku": "200097",
           "amount": 1
-        },
-        {
-          "sku": "music-server",
-          "amount": 1
         }
       ],
-      "slots": [
-        {
-          "sku": "200110",
-          "amount": 1
-        }
-      ]
+      "slots": []
     }
   },
   "gehaeuse_fuer_betonbau": {
@@ -299,10 +296,6 @@
       "slots": [
         {
           "sku": "100218",
-          "amount": 1
-        },
-        {
-          "sku": "rgbw-24v-dimmer",
           "amount": 1
         },
         {
