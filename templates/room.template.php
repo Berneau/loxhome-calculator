@@ -4,13 +4,19 @@
     
     <div class="lxhm-title">
       <select name="lxhm-room-name" required>
-        <option disabled selected>Zimmerart</option>
+        <option disabled selected>Raumauswahl</option>
         <option>Wohnzimmer</option>
         <option>Küche</option>
         <option>Flur</option>
         <option>Wintergarten</option>
         <option>WC</option>
         <option>Schlafzimmer</option>
+        <option>Kinderzimmer</option>
+        <option>Außenbereich</option>
+        <option>Keller</option>
+        <option>Stiege</option>
+        <option>Bad</option>
+        <option>Vorratsraum</option>
       </select>
     </div>
     <div class="lxhm-action">
@@ -28,7 +34,7 @@
     
     <div class="lxhm-section lxhm-row">
       <div class="action">
-        <button type="button" class="lxhm-add-article">Artikel Hinzufügen</button>
+        <button type="button" class="lxhm-add-article">Bereich hinzufügen</button>
       </div>
     </div>
     

@@ -12,15 +12,25 @@
       <option value="8">8</option>
       <option value="9">9</option>
       <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
     </select>
     
     <select name="lxhm-article-type" required>
-      <option disabled selected>Artikel</option>
-      <option value="jalousie">Jalousie</option>
-      <option value="fenster">Fenster</option>
-      <option value="innentuer">Innentür</option>
+      <option disabled selected>Bereich Auswahl</option>
+      <option value="jalousie">Beschattung</option>
+      <option value="fenster">Fenster Überwachung</option>
+      <option value="innentuer">Schalter</option>
       <option value="raumregelung">Raumregelung</option>
-      <option value="speaker">Speaker</option>
+      <option value="speaker">Multiroom Audio</option>
       <option value="gehaeuse_fuer_betonbau">Gehäuse für Betonbau</option>
       <option value="gehaeuse_fuer_trockenbau">Gehäuse für Trockenbau</option>
       <option value="universalbeleuchtung">Universalbeleuchtung</option>
