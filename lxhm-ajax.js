@@ -13,7 +13,8 @@ jQuery(document).ready( function() {
         action: 'lxhm_add_room'
       },
       success: function(response) {
-        jQuery('#lxhm-room-container').prepend(response);
+        response = JSON.parse(response);
+        jQuery('#lxhm-room-container').prepend(response.html);
         lxhmChangeElemState(elem, false);
       },
       error: function() {
@@ -32,10 +33,11 @@ jQuery(document).ready( function() {
       url: ajax_object.ajaxurl,
       type: 'POST',
       data: { 
-        action: 'lxhm_add_article'
+        action: 'lxhm_add_area'
       },
       success: function(response) {
-        elem.parents('.lxhm-card').find('.lxhm-article-container').prepend(response);
+        response = JSON.parse(response);
+        elem.parents('.lxhm-card').find('.lxhm-article-container').prepend(response.html);
         lxhmChangeElemState(elem, false);
       },
       error: function() {
@@ -94,7 +96,8 @@ function lxhmGetArticleOptions(elem) {
       serverType: serverType
     },
     success: function(response) {
-      optionsSelect.html(response);
+      response = JSON.parse(response);
+      optionsSelect.html(response.html);
       lxhmChangeElemState(optionsSelect, false);
     },
     error: function(err) {
@@ -115,12 +118,12 @@ function lxhmGetProducts(formData) {
       formData: JSON.stringify(formData)
     },
     success: function(response) {
-      // console.log(response);
-      var parsedResponse = JSON.parse(response);
+      response = JSON.parse(response);
+      console.log(response);
+      jQuery('#lxhm-product-container').html(response.html);
       
       // temporarely save to window obj
-      window.lxhmProducts = parsedResponse.products;
-      jQuery('#lxhm-product-container').html(parsedResponse.html);
+      window.lxhmProducts = response.data;
     },
     error: function(err) {
       console.log('error', err);

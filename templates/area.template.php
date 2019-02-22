@@ -31,8 +31,6 @@
       <option value="innentuer">Schalter</option>
       <option value="raumregelung">Raumregelung</option>
       <option value="speaker">Multiroom Audio</option>
-      <option value="gehaeuse_fuer_betonbau">Gehäuse für Betonbau</option>
-      <option value="gehaeuse_fuer_trockenbau">Gehäuse für Trockenbau</option>
       <option value="universalbeleuchtung">Universalbeleuchtung</option>
       <option value="loxone_lights">Loxone Lights</option>
       <option value="zentral">Zentral</option>

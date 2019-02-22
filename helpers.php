@@ -1,8 +1,19 @@
 <?php
+
 function lxhm_decode_data($data) {
   // removes the slashes added by WP
   $unslashedData = wp_unslash($data);
   return json_decode($unslashedData);
+}
+
+function lxhm_read_json_file($path) {
+  $file_content = file_get_contents(LXHM_PLUGIN_DIR . '/assets/' . $path . '.json');
+  return json_decode($file_content);
+}
+
+function lxhm_create_response($html, $data = null) {
+  $response = new LxhmResponse($html, $data);
+  return $response->get_json();
 }
 
 function lxhm_get_slots_by_sku($sku) {
@@ -21,13 +32,18 @@ function lxhm_get_slots_by_sku($sku) {
   return $slots[$sku];
 }
 
-function lxhm_request_skus_from_article($type, $option, $serverType) {
-  $relations_string;
-  if ($serverType == 'miniserver') $relations_string = file_get_contents(LXHM_PLUGIN_DIR . '/includes/sku-miniserver.json');
-  elseif ($serverType == 'miniserver-go') $relations_string = file_get_contents(LXHM_PLUGIN_DIR . '/includes/sku-miniserver-go.json');
-  $relations_json = json_decode($relations_string);
-  return $relations_json->$type->$option;
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 function lxhm_get_html_from_skus($skus) {
   $html = '';

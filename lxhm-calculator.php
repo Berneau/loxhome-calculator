@@ -27,13 +27,21 @@
     
     wp_enqueue_script( 'lxhm-script', LXHM_PLUGIN_URL . '/lxhm-calculator.js', array(), false, true );
     wp_enqueue_style( 'lxhm-style', LXHM_PLUGIN_URL . '/lxhm-calculator.css', array(), null );
-    // wp_enqueue_style( 'lxhm-icon-font', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null);
   }
   
   require_once LXHM_PLUGIN_DIR . '/shortcode.php';
-  require_once LXHM_PLUGIN_DIR . '/ajax/add-room.php';
-  require_once LXHM_PLUGIN_DIR . '/ajax/add-article.php';
-  require_once LXHM_PLUGIN_DIR . '/ajax/calculate-rooms.php';
-  require_once LXHM_PLUGIN_DIR . '/ajax/get-options.php';
-  require_once LXHM_PLUGIN_DIR . '/ajax/add-to-cart.php';
+  require_once LXHM_PLUGIN_DIR . '/templates/templates.php';
+  require_once LXHM_PLUGIN_DIR . '/actions.php';
+  require_once LXHM_PLUGIN_DIR . '/helpers.php';
+  
+  require_once LXHM_PLUGIN_DIR . '/functions/get-options.php';
+  require_once LXHM_PLUGIN_DIR . '/functions/calculate-rooms.php';
+  require_once LXHM_PLUGIN_DIR . '/functions/add-to-cart.php';
+  
+  require_once LXHM_PLUGIN_DIR . '/classes/response.php';
+  require_once LXHM_PLUGIN_DIR . '/classes/house.php';
+  require_once LXHM_PLUGIN_DIR . '/classes/room.php';
+  require_once LXHM_PLUGIN_DIR . '/classes/area.php';
+  
+  
 ?>

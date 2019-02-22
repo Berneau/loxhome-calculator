@@ -1,0 +1,97 @@
+{
+  "miniserver": {
+    "jalousie": [
+      "Verkabelt & Bestehend",
+      "Loxone Rohrmotor",
+      "Shading Activator"
+    ],
+    "fenster": [
+      "Fensterkontakt Vorhanden",
+      "Tür-Fensterkontakt Air",
+      "Fenstergriff Air",
+      "Loxone Tree Anbindung"
+    ],
+  	"innentuer": [
+  		"Loxone Tree Standard",
+  		"Loxone Tree Exklusive",
+  		"Standard vorhanden",
+  		"Standard vorhanden Tree"
+  	],
+  	"raumregelung": [
+  		"Loxone Tree",
+  		"Antrieb Standard vorhanden",
+  		"Loxone Tree Exklusive CO2"
+  	],
+  	"speaker": [
+  		"Speaker",
+  		"Gehäuse für Betonbau",
+  		"Gehäuse für Trockenbau"
+  	],
+  	"universalbeleuchtung": [
+  		"Ein/Aus 230V",
+  		"Dimmer 230V",
+  		"Ein/Aus LED 24V",
+  		"Dimmer LED 24V",
+  		"Steckdose und weitere Schaltkontakte"
+  	],
+  	"loxone_lights": [
+  		"Farb Stripe LED",
+  		"Spot RGBW Tree",
+  		"Spot WW",
+  		"LED Pendulum Slim",
+  		"LED Farb Deckenleuchte"
+  	],
+  	"zentral": [
+  		"Zahlencode mit NFC",
+  		"Bewegungsmelder außen",
+  		"Gegensprechanlage"
+  	]
+  },
+  "miniserver_go": {
+  	"jalousie": [
+  		"Bestehend mit Schaltdose",
+  		"Besthend mit Zwischenstecker",
+  		"Loxone Rohmotor"
+  	],
+  	"fenster": [
+  		"Fenserkontakt vorhanden",
+  		"Tür-Fensterkontakt Air",
+  		"Fenstergriff Air"
+  	],
+  	"innentuer": [
+  		"Loxone Air Batterie",
+  		"Loxone Air Deluxe",
+  		"Loxone Air",
+  		"Vorhandener Taster"
+  	],
+  	"raumregelung": [
+  		"Loxone Air Stellenantrieb",
+  		"Loxone Air Fühler",
+  		"Loxone Touch Air"
+  	],
+  	"speaker": [
+      "Speaker",
+  		"Gehäuse für Betonbau",
+  		"Gehäuse für Trockenbau"
+  	],
+  	"universalbeleuchtung": [
+  		"Ein/Aus 230V",
+  		"Dimmer 230V",
+  		"Ein/Aus LED 24V",
+  		"Dimmer LED 24V",
+  		"Steckdose"
+  	],
+  	"loxone_lights": [
+  		"Farb Stripe LED",
+  		"Spot RGBW",
+  		"Spot WW",
+  		"LED Pendulum Slim",
+  		"LED Farb Deckenleuchte"
+  	],
+  	"zentral": [
+  		"Zahlencode mit NFC",
+  		"Zahlencode Batterie",
+  		"Gegensprechanlage"
+  	]
+  }
+}

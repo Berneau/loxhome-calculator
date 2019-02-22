@@ -1,19 +1,77 @@
 <?php
-include_once LXHM_PLUGIN_DIR . '/includes/helpers.php';
-
 function lxhm_calculate_rooms() {
   
   $decodedData = lxhm_decode_data($_POST['formData']);
   if (!$decodedData) return;
   
-  $skus;
-  if ($decodedData->serverType == 'miniserver') $skus = lxhm_miniserver_path($decodedData->rooms);
-  else if ($decodedData->serverType == 'miniserver-go') $skus = lxhm_miniserver_go_path($decodedData->rooms);
+  $house = lxhm_initialize_house($decodedData);
   
-  $return_obj = lxhm_get_html_from_skus($skus);
-  echo json_encode($return_obj);
+  $skus = $house->calculate();
+  
+  $response = lxhm_get_html_from_skus($skus);
+  
+  echo lxhm_create_response($response->html, $response->products);
   wp_die();
 }
+
+
+function lxhm_initialize_house($data) {
+  
+  // read skus from json file at central point
+  $skus_from_json = lxhm_read_json_file('sku-' . $data->serverType);
+  
+  // initialize house
+  $house = new LxhmHouse($data->serverType);
+  
+  // add rooms to house
+  foreach ($data->rooms as $room_elem) {
+    
+    // init room
+    $room = new LxhmRoom($room_elem->roomName);
+    
+    // add areas to room
+    foreach ($room_elem->articles as $area_elem) {
+      
+      // init area
+      $area = new LxhmArea($area_elem->type, $area_elem->amount, $area_elem->option, $skus_from_json);
+      
+      // add area to room
+      $room->add_area($area);
+    }
+  
+    // add room to $house
+    $house->add_room($room);
+  }
+
+  return $house;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function lxhm_miniserver_path($rooms) {
   $skus = array();
@@ -296,10 +354,4 @@ function lxhm_miniserver_go_path($rooms) {
   return $skus;
 }
 
-
-
-
-
-add_action( "wp_ajax_lxhm_calculate_rooms", "lxhm_calculate_rooms" );
-add_action( "wp_ajax_nopriv_lxhm_calculate_rooms", "lxhm_calculate_rooms" );
 ?>

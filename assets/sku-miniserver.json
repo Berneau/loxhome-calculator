@@ -183,14 +183,17 @@
       "new": [
         {
           "sku": "200097",
-          "amount": 1
+          "amount": 2
         }
       ],
-      "slots": []
-    }
-  },
-  "gehaeuse_fuer_betonbau": {
-    "1": {
+      "slots": [
+        {
+          "sku": "200110",
+          "amount": 2
+        }
+      ]
+    },
+    "2": {
       "new": [
         {
           "sku": "200150",
@@ -198,10 +201,8 @@
         }
       ],
       "slots": []
-    }
-  },
-  "gehaeuse_fuer_trockenbau": {
-    "1": {
+    },
+    "3": {
       "new": [
         {
           "sku": "200202",

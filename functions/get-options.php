@@ -1,6 +1,4 @@
 <?php
-include_once LXHM_PLUGIN_DIR . '/includes/article-options.php';
-
 function lxhm_get_options() {
   $serverType = $_POST['serverType'];
   $article = $_POST['article'];
@@ -8,12 +6,13 @@ function lxhm_get_options() {
   if (!$article) return;
   if (!$serverType) return;
   
+  $json_from_file = lxhm_read_json_file('area-options');
+  
   $options;
-  if ($serverType == 'miniserver') $options = lxhmGetMiniserverOptions($article);
-  elseif ($serverType == 'miniserver-go') $options = lxhmGetMiniserverGoOptions($article);
+  if ($serverType == 'miniserver') $options = $json_from_file->miniserver->$article;
+  elseif ($serverType == 'miniserver-go') $options = $json_from_file->miniserver_go->$article;
   
   $html = '<option value="null">Option wählen</option>';
-
   for ($i = 0; $i < sizeof($options); $i++) {
     $html .= '<option value="';
     $html .= $i+1;
@@ -22,10 +21,7 @@ function lxhm_get_options() {
     $html .= '</option>';
   }
 
-  print_r($html);
+  echo lxhm_create_response($html);
   wp_die();
 }
-
-add_action( "wp_ajax_lxhm_get_options", "lxhm_get_options" );
-add_action( "wp_ajax_nopriv_lxhm_get_options", "lxhm_get_options" );
 ?>
