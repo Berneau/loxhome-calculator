@@ -10,6 +10,10 @@ class LxhmRoom {
     $this->ruleset['needs_weather_station'] = false;
     $this->ruleset['needs_motion_detector'] = false;
     $this->ruleset['has_speaker_in_room'] = false;
+    $this->ruleset['is_14_or_15_selected'] = false;
+    $this->ruleset['is_16_selected'] = false;
+    $this->ruleset['amount_of_di_slots_per_room'] = 0;
+    $this->ruleset['amount_of_dis_per_room'] = 0;
   }
   
   function add_area($area) {
@@ -44,6 +48,9 @@ class LxhmRoom {
     foreach ($this->areas as $area) {
       $this->combine_rules($area->get_extra_rules());
     }
+    
+    $this->interpret_rules();
+    
     return $this->ruleset;
   }
   
@@ -51,6 +58,17 @@ class LxhmRoom {
     if ($rules['needs_weather_station']) $this->ruleset['needs_weather_station'] = true;
     if ($rules['needs_motion_detector']) $this->ruleset['needs_motion_detector'] = true;
     if ($rules['has_speaker_in_room']) $this->ruleset['has_speaker_in_room'] = true;
+    if ($rules['is_14_or_15_selected']) $this->ruleset['is_14_or_15_selected'] = true;
+    if ($rules['is_16_selected']) $this->ruleset['is_16_selected'] = true;
+    if ($rules['amount_of_di_slots'] > 0) $this->ruleset['amount_of_di_slots_per_room'] += $rules['amount_of_di_slots'];
+  }
+  
+  function interpret_rules() {
+    $amount_of_di_slots = $this->ruleset['amount_of_di_slots_per_room'];
+    if ($amount_of_di_slots > 0) {
+      $amount_of_dis_per_room = intdiv_and_remainder(6, $amount_of_di_slots);
+      $this->ruleset['amount_of_dis_per_room'] = $amount_of_dis_per_room;
+    }
   }
 }
 ?>

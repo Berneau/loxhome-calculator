@@ -16,6 +16,13 @@ function lxhm_create_response($html, $data = null) {
   return $response->get_json();
 }
 
+function intdiv_and_remainder($slots_available, $slots_needed) {
+  $to_add = intdiv($slots_needed, $slots_available);
+  $remainder = $slots_needed % $slots_available;
+  if ($remainder != 0) $to_add++;
+  return $to_add;
+}
+
 function lxhm_get_slots_by_sku($sku) {
   $slots = array(
     '100038' => 14,

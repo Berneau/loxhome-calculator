@@ -130,7 +130,12 @@
       ]
     },
     "4": {
-      "new": [],
+      "new": [
+        {
+          "sku": "200113",
+          "amount": 1
+        }
+      ],
       "slots": [
         {
           "sku": "100218",
@@ -293,17 +298,13 @@
       ]
     },
     "3": {
-      "new": [],
-      "slots": [
+      "new": [
         {
-          "sku": "100218",
-          "amount": 1
-        },
-        {
-          "sku": "led-spot-ww",
+          "sku": "led-spots-ww-global",
           "amount": 1
         }
-      ]
+      ],
+      "slots": []
     },
     "4": {
       "new": [

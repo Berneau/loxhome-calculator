@@ -15,6 +15,9 @@ class LxhmArea {
     $this->ruleset['needs_weather_station'] = false;
     $this->ruleset['needs_motion_detector'] = false;
     $this->ruleset['has_speaker_in_room'] = false;
+    $this->ruleset['is_14_or_15_selected'] = false;
+    $this->ruleset['is_16_selected'] = false;
+    $this->ruleset['amount_of_di_slots'] = 0;
   }
   
   function calculate() {
@@ -52,16 +55,31 @@ class LxhmArea {
   
   function handle_extra_rules() {
     if ($this->name == 'jalousie') $this->ruleset['needs_weather_station'] = true;
-    if ($this->name == 'raumregelung') $this->ruleset['needs_motion_detector'] = true;
+    
+    if ($this->name == 'raumregelung') {
+      $this->ruleset['needs_motion_detector'] = true;
+      if ($this->option == 1) $this->ruleset['is_14_or_15_selected'] = true;
+      if ($this->option == 2) $this->ruleset['is_14_or_15_selected'] = true;
+      if ($this->option == 3) $this->ruleset['is_16_selected'] = true;
+    }
+    
     if ($this->name == 'universalbeleuchtung') $this->ruleset['needs_motion_detector'] = true;
+    
     if ($this->name == 'speaker' && $this->option == 1) {
       $this->ruleset['needs_motion_detector'] = true;
       $this->ruleset['has_speaker_in_room'] = true;
-    } 
+    }
+    
+    if ($this->name == 'fenster' && $this->option == 4) {
+      $this->ruleset['amount_of_di_slots'] += $this->amount;
+    }
+    
+    if ($this->name == 'innentuer' && $this->option == 4) {
+      $this->ruleset['amount_of_di_slots'] += $this->amount;
+    }
   }
   
   function get_extra_rules() {
-    // var_dump($this->ruleset);
     return $this->ruleset;
   }
 }
