@@ -17,6 +17,7 @@
         <option>Stiege</option>
         <option>Bad</option>
         <option>Vorratsraum</option>
+        <option>Sonstiges</option>
       </select>
     </div>
     <div class="lxhm-action">

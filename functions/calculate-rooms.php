@@ -17,23 +17,34 @@ function lxhm_calculate_rooms() {
 
 function lxhm_initialize_house($data) {
   
+  $miniserver = false;
+  if ($data->serverType == 'miniserver') $miniserver = true;
+  
   // read skus from json file at central point
   $skus_from_json = lxhm_read_json_file('sku-' . $data->serverType);
   
+  // var_dump($skus_from_json);
+  
   // initialize house
-  $house = new LxhmHouse($data->serverType);
+  $house;
+  if ($miniserver) $house = new LxhmHouse($data->serverType);
+  elseif (!$miniserver) $house = new LxhmHouseGo($data->serverType);
   
   // add rooms to house
   foreach ($data->rooms as $room_elem) {
     
     // init room
-    $room = new LxhmRoom($room_elem->roomName);
+    $room;
+    if ($miniserver) $room = new LxhmRoom($room_elem->roomName);
+    elseif (!$miniserver) $room = new LxhmRoomGo($room_elem->roomName);
     
     // add areas to room
     foreach ($room_elem->articles as $area_elem) {
       
       // init area
-      $area = new LxhmArea($area_elem->type, $area_elem->amount, $area_elem->option, $skus_from_json);
+      $area;
+      if ($miniserver) $area = new LxhmArea($area_elem->type, $area_elem->amount, $area_elem->option, $skus_from_json);
+      elseif (!$miniserver) $area = new LxhmAreaGo($area_elem->type, $area_elem->amount, $area_elem->option, $skus_from_json);
       
       // add area to room
       $room->add_area($area);

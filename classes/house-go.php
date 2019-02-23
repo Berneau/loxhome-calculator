@@ -1,5 +1,5 @@
 <?php
-class LxhmHouse {
+class LxhmHouseGo extends LxhmHouse {
   private $serverType;
   private $rooms;
   private $new_and_slots;
@@ -10,8 +10,8 @@ class LxhmHouse {
     $this->ruleset['needs_weather_station'] = false;
     $this->ruleset['amount_of_motion_detectors'] = 0;
     $this->ruleset['amount_of_speaker_rooms'] = 0;
-    $this->ruleset['is_14_or_15_selected'] = false;
-    $this->ruleset['is_16_selected'] = false;
+    // $this->ruleset['is_14_or_15_selected'] = false;
+    // $this->ruleset['is_16_selected'] = false;
   }
   
   function add_room($room) {
@@ -78,22 +78,20 @@ class LxhmHouse {
     if ($rules['needs_weather_station']) $this->ruleset['needs_weather_station'] = true;
     if ($rules['needs_motion_detector']) $this->ruleset['amount_of_motion_detectors']++;
     if ($rules['has_speaker_in_room']) $this->ruleset['amount_of_speaker_rooms']++;
-    if ($rules['is_14_or_15_selected']) $this->ruleset['is_14_or_15_selected'] = true;
-    if ($rules['is_16_selected']) $this->ruleset['is_16_selected'] = true;
-    if ($rules['amount_of_dis_per_room'] > 0) $this->ruleset['amount_of_all_dis'] += $rules['amount_of_dis_per_room'];
+    // if ($rules['is_14_or_15_selected']) $this->ruleset['is_14_or_15_selected'] = true;
+    // if ($rules['is_16_selected']) $this->ruleset['is_16_selected'] = true;
   }
   
   function interpret_rules() {
-    $this->safely_add('new', '100001', 1);
-    
     if ($this->ruleset['needs_weather_station']) {
-      $this->safely_add('new', '100246', 1);
-      $this->safely_add('slots', '100218', 1);
+      $this->safely_add('new', '100245', 1);
+      $this->safely_add('slots', '100139', 1);
     }
     
     $amount_of_motion_detectors = $this->ruleset['amount_of_motion_detectors'];
     if ($amount_of_motion_detectors > 0) {
-      $this->safely_add('new', 'motion-sensor', $amount_of_motion_detectors);
+      $this->safely_add('new', '100190', $amount_of_motion_detectors);
+      $this->safely_add('slots', '100139', 1);
     }
     
     $amount_of_speaker_rooms = $this->ruleset['amount_of_speaker_rooms'];
@@ -103,16 +101,22 @@ class LxhmHouse {
       if ($amount_of_speaker_rooms > 8 && $amount_of_speaker_rooms <= 12) $this->safely_add('new', '100167', 1);
       if ($amount_of_speaker_rooms > 12 && $amount_of_speaker_rooms <= 16) $this->safely_add('new', '100168', 1);
       if ($amount_of_speaker_rooms > 16) $this->safely_add('new', '100169', 1);
-      
-      $this->safely_add('slots', '100218', $amount_of_speaker_rooms);
+      $this->safely_add('slots', '100139', 1);
     }
     
-    if ($this->ruleset['is_14_or_15_selected']) {
-      if (!$this->ruleset['is_16_selected']) {
-        $this->safely_add('new', '100221', 1);
-        $this->safely_add('slots', '100218', 1);
-      }
+    $amount_of_speakers = $this->new_and_slots->new['200097'];
+    if ($amount_of_speakers > 0) {
+      $to_add = intdiv_and_remainder(12, $amount_of_speakers);
+      $this->safely_add('new', '200110', $to_add);
+      $this->safely_add('slots', '100139', $to_add);
     }
+    
+    // if ($this->ruleset['is_14_or_15_selected']) {
+    //   if (!$this->ruleset['is_16_selected']) {
+    //     $this->safely_add('new', '100221', 1);
+    //     $this->safely_add('slots', '100218', 1);
+    //   }
+    // }
     
     $amount_of_ww_spots = $this->new_and_slots->new['led-spots-ww-global'];
     if ($amount_of_ww_spots > 0) {

@@ -6,7 +6,7 @@
       "Shading Activator"
     ],
     "fenster": [
-      "Fensterkontakt Vorhanden",
+      "Fensterkontakt vorhanden",
       "Tür-Fensterkontakt Air",
       "Fenstergriff Air",
       "Loxone Tree Anbindung"
@@ -20,6 +20,7 @@
   	"raumregelung": [
   		"Loxone Tree",
   		"Antrieb Standard vorhanden",
+      "Loxone Tree Exklusive",
   		"Loxone Tree Exklusive CO2"
   	],
   	"speaker": [
@@ -54,20 +55,21 @@
   		"Loxone Rohmotor"
   	],
   	"fenster": [
-  		"Fenserkontakt vorhanden",
+  		"Fensterkontakt vorhanden",
   		"Tür-Fensterkontakt Air",
   		"Fenstergriff Air"
   	],
   	"innentuer": [
   		"Loxone Air Batterie",
-  		"Loxone Air Deluxe",
   		"Loxone Air",
+      "Loxone Air Deluxe",
   		"Vorhandener Taster"
   	],
   	"raumregelung": [
   		"Loxone Air Stellenantrieb",
   		"Loxone Air Fühler",
-  		"Loxone Touch Air"
+  		"Loxone Touch Air",
+      "Loxone Touch Air Deluxe"
   	],
   	"speaker": [
       "Speaker",

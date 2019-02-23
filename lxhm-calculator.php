@@ -42,6 +42,9 @@
   require_once LXHM_PLUGIN_DIR . '/classes/house.php';
   require_once LXHM_PLUGIN_DIR . '/classes/room.php';
   require_once LXHM_PLUGIN_DIR . '/classes/area.php';
+  require_once LXHM_PLUGIN_DIR . '/classes/house-go.php';
+  require_once LXHM_PLUGIN_DIR . '/classes/room-go.php';
+  require_once LXHM_PLUGIN_DIR . '/classes/area-go.php';
   
   
 ?>
