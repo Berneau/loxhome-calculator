@@ -3,7 +3,7 @@
   Plugin Name: Loxhome Calculator (WIP)
   Plugin URI: 
   description: a calculator for Loxhome
-  Version: 1.0
+  Version: 1.3
   Author: Bernhard Steger
   Author URI: https://berneau.at
   License: GPL2
