@@ -13,6 +13,15 @@ class LxhmHouseGo extends LxhmHouse {
     $this->ruleset['is_1_selected'] = false;
     $this->ruleset['is_5_selected'] = false;
     $this->ruleset['amount_of_230V_lights'] = 0;
+    $this->ruleset['amount_of_24V_lights'] = 0;
+    $this->ruleset['amount_of_dimmer_lights'] = 0;
+    $this->ruleset['amount_of_rgbw_spots'] = 0;
+    $this->ruleset['amount_of_ww_spots'] = 0;
+    $this->ruleset['amount_of_pendulums'] = 0;
+    $this->ruleset['amount_of_air_sensor_rooms'] = 0;
+    $this->ruleset['amount_of_touch_needed'] = 0;
+    $this->ruleset['amount_of_touch_pure_needed'] = 0;
+    $this->ruleset['amount_of_zahlencodes'] = 0;
   }
   
   function add_room($room) {
@@ -42,8 +51,20 @@ class LxhmHouseGo extends LxhmHouse {
     // check slots needed and add to new
     $this->add_slots_to_news();
     
+    // double check if there is at least 1 miniserver go
+    $this->double_check();
+    
     // return only the skus to add
     return $this->new_and_slots->new;
+  }
+  
+  function double_check() {
+    $to_test = $this->new_and_slots->new['100139'];
+    if (!isset($to_test)) {
+      if ($to_test == 0) {
+        $this->new_and_slots->new['100139'] = 1;
+      }
+    }
   }
   
   function add_slots_to_news() {
@@ -72,7 +93,7 @@ class LxhmHouseGo extends LxhmHouse {
   
   function safely_add($collection, $sku, $amount) {
     if (!isset($this->new_and_slots->$collection[$sku])) $this->new_and_slots->$collection[$sku] = 0;
-    $this->new_and_slots->$collection[$sku] = $amount;
+    $this->new_and_slots->$collection[$sku] += $amount;
   }
   
   function combine_rules($rules) {
@@ -82,15 +103,32 @@ class LxhmHouseGo extends LxhmHouse {
     if ($rules['is_1_selected']) $this->ruleset['is_1_selected'] = true;
     if ($rules['is_5_selected']) $this->ruleset['is_5_selected'] = true;
     $this->ruleset['amount_of_230V_lights'] += $rules['amount_of_230V_lights'];
+    $this->ruleset['amount_of_24V_lights'] += $rules['amount_of_24V_lights'];
+    $this->ruleset['amount_of_dimmer_lights'] += $rules['amount_of_dimmer_lights'];
+    $this->ruleset['amount_of_rgbw_spots'] += $rules['amount_of_rgbw_spots'];
+    $this->ruleset['amount_of_ww_spots'] += $rules['amount_of_ww_spots'];
+    $this->ruleset['amount_of_pendulums'] += $rules['amount_of_pendulums'];
+    if ($rules['needs_air_sensor']) $this->ruleset['amount_of_air_sensor_rooms']++;
+    if ($rules['needs_touch']) $this->ruleset['amount_of_touch_needed']++;
+    if ($rules['needs_touch_pure']) $this->ruleset['amount_of_touch_pure_needed']++;
+    $this->ruleset['amount_of_zahlencodes'] += $rules['amount_of_zahlencodes'];
   }
   
   function interpret_rules() {
     $amount_of_motion_detectors = $this->ruleset['amount_of_motion_detectors'];
     $amount_of_speaker_rooms = $this->ruleset['amount_of_speaker_rooms'];
     $amount_of_speakers = $this->new_and_slots->new['200097'];
-    $amount_of_ww_spots = $this->new_and_slots->new['led-spots-ww-global'];
     $amount_of_all_dis = $this->ruleset['amount_of_all_dis'];
     $amount_of_all_230V = $this->ruleset['amount_of_230V_lights'];
+    $amount_of_all_24V = $this->ruleset['amount_of_24V_lights'];
+    $amount_of_all_dimmer = $this->ruleset['amount_of_dimmer_lights'];
+    $amount_of_all_rgbw_spots = $this->ruleset['amount_of_rgbw_spots'];
+    $amount_of_all_ww_spots = $this->ruleset['amount_of_ww_spots'];
+    $amount_of_all_pendulums = $this->ruleset['amount_of_pendulums'];
+    $amount_of_air_sensor_rooms = $this->ruleset['amount_of_air_sensor_rooms'];
+    $amount_of_touch_needed = $this->ruleset['amount_of_touch_needed'];
+    $amount_of_touch_pure_needed = $this->ruleset['amount_of_touch_pure_needed'];
+    $amount_of_all_zahlencodes = $this->ruleset['amount_of_zahlencodes'];
     
     if ($this->ruleset['needs_weather_station']) {
       $this->safely_add('new', '100245', 1);
@@ -117,14 +155,9 @@ class LxhmHouseGo extends LxhmHouse {
       $this->safely_add('slots', '100139', $to_add);
     }
     
-    if ($amount_of_ww_spots > 0) {
-      $amount_of_dimmer = intdiv_and_remainder(10, $amount_of_ww_spots);
-      $amount_of_exts = intdiv_and_remainder(4, $amount_of_dimmer);
-      $this->safely_add('slots', 'rgbw-24v-dimmer', $amount_of_dimmer);
-      $this->safely_add('slots', '100218', $amount_of_exts);
+    if ($amount_of_all_dis > 0) {
+      $this->safely_add('new', '100242', $amount_of_all_dis);
     }
-    
-    if ($amount_of_all_dis > 0) $this->safely_add('new', '100242', $amount_of_all_dis);
     
     if ($this->ruleset['is_5_selected']) {
       if (!$this->ruleset['is_1_selected']) {
@@ -134,7 +167,60 @@ class LxhmHouseGo extends LxhmHouse {
     }
     
     if ($amount_of_all_230V > 0) {
-      $amount_to_add = intdiv_and_remainder(2, $this->ruleset['amount_of_230V_lights']);
+      $amount_to_add = intdiv_and_remainder(2, $amount_of_all_230V);
+      $this->safely_add('new', '100153', $amount_to_add);
+      $this->safely_add('slots', '100139', $amount_to_add);
+    }
+    
+    if ($amount_of_all_24V > 0) {
+      $amount_to_add = intdiv_and_remainder(4, $amount_of_all_24V);
+      $this->safely_add('new', 'rgbw-24V-compact-dimmer', $amount_to_add);
+      $this->safely_add('slots', '100139', $amount_to_add);
+    }
+    
+    if ($amount_of_all_dimmer > 0) {
+      $amount_to_add = intdiv_and_remainder(4, $amount_of_all_dimmer);
+      $this->safely_add('new', 'rgbw-24V-compact-dimmer', $amount_to_add);
+      $this->safely_add('slots', '100139', $amount_to_add);
+    }
+    
+    if ($amount_of_all_rgbw_spots > 0) {
+      $amount_to_add = intdiv_and_remainder(8, $amount_of_all_rgbw_spots);
+      $this->safely_add('new', 'rgbw-24V-compact-dimmer', $amount_to_add);
+      $this->safely_add('new', '200297', $amount_to_add);
+      $this->safely_add('slots', '100139', $amount_to_add);
+    }
+    
+    if ($amount_of_all_ww_spots > 0) {
+      $amount_to_add = intdiv_and_remainder(14, $amount_of_all_ww_spots);
+      $this->safely_add('new', 'rgbw-24V-compact-dimmer', $amount_to_add);
+      $this->safely_add('new', '200297', $amount_to_add);
+      $this->safely_add('slots', '100139', $amount_to_add);
+    }
+    
+    if ($amount_of_all_pendulums > 0) {
+      $amount_to_add = intdiv_and_remainder(44, $amount_of_all_pendulums);
+      $this->safely_add('new', 'rgbw-24V-compact-dimmer', $amount_to_add);
+      $this->safely_add('slots', '100139', $amount_to_add);
+    }
+    
+    if ($amount_of_air_sensor_rooms > 0) {
+      $this->safely_add('new', '100264', $amount_of_air_sensor_rooms);
+      $this->safely_add('slots', '100139', $amount_of_air_sensor_rooms);
+    }
+    
+    if ($amount_of_touch_needed > 0) {
+      $this->safely_add('new', '100155', $amount_of_touch_needed);
+      $this->safely_add('slots', '100139', $amount_of_touch_needed);
+    }
+    
+    if ($amount_of_touch_pure_needed > 0) {
+      $this->safely_add('new', '100206', $amount_of_touch_pure_needed);
+      $this->safely_add('slots', '100139', $amount_of_touch_pure_needed);
+    }
+    
+    if ($amount_of_all_zahlencodes > 0) {
+      $amount_to_add = intdiv_and_remainder(6, $amount_of_all_zahlencodes);
       $this->safely_add('new', '100153', $amount_to_add);
       $this->safely_add('slots', '100139', $amount_to_add);
     }

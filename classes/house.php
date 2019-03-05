@@ -71,7 +71,7 @@ class LxhmHouse {
   
   function safely_add($collection, $sku, $amount) {
     if (!isset($this->new_and_slots->$collection[$sku])) $this->new_and_slots->$collection[$sku] = 0;
-    $this->new_and_slots->$collection[$sku] = $amount;
+    $this->new_and_slots->$collection[$sku] += $amount;
   }
   
   function combine_rules($rules) {

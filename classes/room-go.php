@@ -13,6 +13,19 @@ class LxhmRoomGo {
     $this->ruleset['is_1_selected'] = false;
     $this->ruleset['is_5_selected'] = false;
     $this->ruleset['amount_of_230V_lights'] = 0;
+    $this->ruleset['amount_of_24V_lights'] = 0;
+    $this->ruleset['amount_of_dimmer_lights'] = 0;
+    $this->ruleset['amount_of_rgbw_spots'] = 0;
+    $this->ruleset['amount_of_ww_spots'] = 0;
+    $this->ruleset['amount_of_pendulums'] = 0;
+    $this->ruleset['needs_air_sensor'] = false;
+    $this->ruleset['is_9_selected'] = false;
+    $this->ruleset['is_10_selected'] = false;
+    $this->ruleset['is_15_selected'] = false;
+    $this->ruleset['is_16_selected'] = false;
+    $this->ruleset['needs_touch'] = false;
+    $this->ruleset['needs_touch_pure'] = false;
+    $this->ruleset['amount_of_zahlencodes'] = 0;
   }
   
   function add_area($area) {
@@ -48,6 +61,8 @@ class LxhmRoomGo {
       $this->combine_rules($area->get_extra_rules());
     }
     
+    $this->interpret_rules();
+    
     return $this->ruleset;
   }
   
@@ -57,8 +72,32 @@ class LxhmRoomGo {
     if ($rules['has_speaker_in_room']) $this->ruleset['has_speaker_in_room'] = true;
     if ($rules['is_1_selected']) $this->ruleset['is_1_selected'] = true;
     if ($rules['is_5_selected']) $this->ruleset['is_5_selected'] = true;
-    if ($rules['is_5_selected']) $this->ruleset['is_5_selected'] = true;
     $this->ruleset['amount_of_230V_lights'] += $rules['amount_of_230V_lights'];
+    $this->ruleset['amount_of_24V_lights'] += $rules['amount_of_24V_lights'];
+    $this->ruleset['amount_of_dimmer_lights'] += $rules['amount_of_dimmer_lights'];
+    $this->ruleset['amount_of_rgbw_spots'] += $rules['amount_of_rgbw_spots'];
+    $this->ruleset['amount_of_ww_spots'] += $rules['amount_of_ww_spots'];
+    $this->ruleset['amount_of_pendulums'] += $rules['amount_of_pendulums'];
+    if ($rules['needs_air_sensor']) $this->ruleset['needs_air_sensor'] = true;
+    if ($rules['is_15_selected']) $this->ruleset['is_15_selected'] = true;
+    if ($rules['is_16_selected']) $this->ruleset['is_16_selected'] = true;
+    if ($rules['is_9_selected']) $this->ruleset['is_9_selected'] = true;
+    if ($rules['is_10_selected']) $this->ruleset['is_10_selected'] = true;
+    $this->ruleset['amount_of_zahlencodes'] += $rules['amount_of_zahlencodes'];
+  }
+  
+  function interpret_rules() {
+    if ($this->ruleset['is_15_selected']) {
+      if (!$this->ruleset['is_9_selected']) {
+        $this->ruleset['needs_touch'] = true;
+      }
+    }
+    
+    if ($this->ruleset['is_16_selected']) {
+      if (!$this->ruleset['is_10_selected']) {
+        $this->ruleset['needs_touch_pure'] = true;
+      }
+    }
   }
 }
 ?>
