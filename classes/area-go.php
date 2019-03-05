@@ -15,8 +15,9 @@ class LxhmAreaGo {
     $this->ruleset['needs_weather_station'] = false;
     $this->ruleset['needs_motion_detector'] = false;
     $this->ruleset['has_speaker_in_room'] = false;
-    // $this->ruleset['is_15_selected'] = false;
-    // $this->ruleset['is_9_selected'] = false;
+    $this->ruleset['is_1_selected'] = false;
+    $this->ruleset['is_5_selected'] = false;
+    $this->ruleset['amount_of_230V_lights'] = 0;
   }
   
   function calculate() {
@@ -59,9 +60,6 @@ class LxhmAreaGo {
     
     if ($this->name == 'raumregelung') {
       $this->ruleset['needs_motion_detector'] = true;
-      // if ($this->option == 1) $this->ruleset['is_14_or_15_selected'] = true;
-      // if ($this->option == 2) $this->ruleset['is_14_or_15_selected'] = true;
-      // if ($this->option == 3) $this->ruleset['is_16_selected'] = true;
     }
     
     if ($this->name == 'universalbeleuchtung') $this->ruleset['needs_motion_detector'] = true;
@@ -69,6 +67,18 @@ class LxhmAreaGo {
     if ($this->name == 'speaker' && $this->option == 1) {
       $this->ruleset['needs_motion_detector'] = true;
       $this->ruleset['has_speaker_in_room'] = true;
+    }
+    
+    if ($this->name == 'jalousie' && $this->option == 1) {
+      $this->ruleset['is_1_selected'] = true;
+    }
+    
+    if ($this->name == 'fenster' && $this->option == 1) {
+      $this->ruleset['is_5_selected'] = true;
+    }
+    
+    if ($this->name == 'universalbeleuchtung' && $this->option == 1) {
+      $this->ruleset['amount_of_230V_lights'] = $this->amount;
     }
   }
   

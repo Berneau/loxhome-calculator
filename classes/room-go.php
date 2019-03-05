@@ -10,8 +10,9 @@ class LxhmRoomGo {
     $this->ruleset['needs_weather_station'] = false;
     $this->ruleset['needs_motion_detector'] = false;
     $this->ruleset['has_speaker_in_room'] = false;
-    // $this->ruleset['is_14_or_15_selected'] = false;
-    // $this->ruleset['is_16_selected'] = false;
+    $this->ruleset['is_1_selected'] = false;
+    $this->ruleset['is_5_selected'] = false;
+    $this->ruleset['amount_of_230V_lights'] = 0;
   }
   
   function add_area($area) {
@@ -47,8 +48,6 @@ class LxhmRoomGo {
       $this->combine_rules($area->get_extra_rules());
     }
     
-    $this->interpret_rules();
-    
     return $this->ruleset;
   }
   
@@ -56,12 +55,10 @@ class LxhmRoomGo {
     if ($rules['needs_weather_station']) $this->ruleset['needs_weather_station'] = true;
     if ($rules['needs_motion_detector']) $this->ruleset['needs_motion_detector'] = true;
     if ($rules['has_speaker_in_room']) $this->ruleset['has_speaker_in_room'] = true;
-    // if ($rules['is_14_or_15_selected']) $this->ruleset['is_14_or_15_selected'] = true;
-    // if ($rules['is_16_selected']) $this->ruleset['is_16_selected'] = true;
-  }
-  
-  function interpret_rules() {
-    
+    if ($rules['is_1_selected']) $this->ruleset['is_1_selected'] = true;
+    if ($rules['is_5_selected']) $this->ruleset['is_5_selected'] = true;
+    if ($rules['is_5_selected']) $this->ruleset['is_5_selected'] = true;
+    $this->ruleset['amount_of_230V_lights'] += $rules['amount_of_230V_lights'];
   }
 }
 ?>
