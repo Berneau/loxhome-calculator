@@ -6,6 +6,9 @@ class LxhmHouse {
   private $ruleset;
   
   function __construct($serverType) {
+    $this->new_and_slots = new stdClass();
+    $this->rooms = array();
+
     $this->serverType = $serverType;
     $this->ruleset['needs_weather_station'] = false;
     $this->ruleset['amount_of_motion_detectors'] = 0;
@@ -15,7 +18,6 @@ class LxhmHouse {
   }
   
   function add_room($room) {
-    if (!isset($this->rooms)) $this->rooms = array();
     array_push($this->rooms, $room);
   }
   
@@ -70,8 +72,14 @@ class LxhmHouse {
   }
   
   function safely_add($collection, $sku, $amount) {
-    if (!isset($this->new_and_slots->$collection[$sku])) $this->new_and_slots->$collection[$sku] = 0;
-    $this->new_and_slots->$collection[$sku] += $amount;
+    if ($collection == 'new') {
+      if (!isset($this->new_and_slots->new[$sku])) $this->new_and_slots->new[$sku] = 0;
+      $this->new_and_slots->new[$sku] += $amount;
+    }
+    elseif ($collection == 'slots') {
+      if (!isset($this->new_and_slots->slots[$sku])) $this->new_and_slots->slots[$sku] = 0;
+      $this->new_and_slots->slots[$sku] += $amount;
+    }
   }
   
   function combine_rules($rules) {

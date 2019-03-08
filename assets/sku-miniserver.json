@@ -216,19 +216,37 @@
       "new": [
         {
           "sku": "200150",
-          "amount": 1
+          "amount": 2
+        },
+        {
+          "sku": "200097",
+          "amount": 2
         }
       ],
-      "slots": []
+      "slots": [
+        {
+          "sku": "200110",
+          "amount": 2
+        }
+      ]
     },
     "3": {
       "new": [
         {
           "sku": "200202",
-          "amount": 1
+          "amount": 2
+        },
+        {
+          "sku": "200097",
+          "amount": 2
         }
       ],
-      "slots": []
+      "slots": [
+        {
+          "sku": "200110",
+          "amount": 2
+        }
+      ]
     }
   },
   "universalbeleuchtung": {

@@ -6,6 +6,9 @@ class LxhmHouseGo extends LxhmHouse {
   private $ruleset;
   
   function __construct($serverType) {
+    $this->new_and_slots = new stdClass();
+    $this->rooms = array();
+
     $this->serverType = $serverType;
     $this->ruleset['needs_weather_station'] = false;
     $this->ruleset['amount_of_motion_detectors'] = 0;
@@ -25,7 +28,7 @@ class LxhmHouseGo extends LxhmHouse {
   }
   
   function add_room($room) {
-    if (!isset($this->rooms)) $this->rooms = array();
+    // if (!isset($this->rooms)) $this->rooms = array();
     array_push($this->rooms, $room);
   }
   

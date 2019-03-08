@@ -65,7 +65,7 @@ class LxhmArea {
     
     if ($this->name == 'universalbeleuchtung') $this->ruleset['needs_motion_detector'] = true;
     
-    if ($this->name == 'speaker' && $this->option == 1) {
+    if ($this->name == 'speaker') {
       $this->ruleset['needs_motion_detector'] = true;
       $this->ruleset['has_speaker_in_room'] = true;
     }
