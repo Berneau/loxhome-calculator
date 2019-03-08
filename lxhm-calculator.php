@@ -1,9 +1,9 @@
 <?php
   /*
-  Plugin Name: Loxhome Calculator (WIP)
+  Plugin Name: Loxhome Calculator
   Plugin URI: 
-  description: a calculator for Loxhome
-  Version: 1.4
+  description: A calculator for Loxhome products.
+  Version: 1.5
   Author: Bernhard Steger
   Author URI: https://berneau.at
   License: GPL2
