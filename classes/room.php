@@ -14,6 +14,10 @@ class LxhmRoom {
     $this->ruleset['is_16_selected'] = false;
     $this->ruleset['amount_of_di_slots_per_room'] = 0;
     $this->ruleset['amount_of_dis_per_room'] = 0;
+    $this->ruleset['amount_of_rgbw_spots'] = 0;
+    $this->ruleset['amount_of_ww_spots'] = 0;
+    $this->ruleset['amount_of_pendulums'] = 0;
+    $this->ruleset['amount_of_ceiling_lights'] = 0;
   }
   
   function add_area($area) {
@@ -60,7 +64,11 @@ class LxhmRoom {
     if ($rules['has_speaker_in_room']) $this->ruleset['has_speaker_in_room'] = true;
     if ($rules['is_14_or_15_selected']) $this->ruleset['is_14_or_15_selected'] = true;
     if ($rules['is_16_selected']) $this->ruleset['is_16_selected'] = true;
-    if ($rules['amount_of_di_slots'] > 0) $this->ruleset['amount_of_di_slots_per_room'] += $rules['amount_of_di_slots'];
+    $this->ruleset['amount_of_di_slots_per_room'] += $rules['amount_of_di_slots'];
+    $this->ruleset['amount_of_rgbw_spots'] += $rules['amount_of_rgbw_spots'];
+    $this->ruleset['amount_of_ww_spots'] += $rules['amount_of_ww_spots'];
+    $this->ruleset['amount_of_pendulums'] += $rules['amount_of_pendulums'];
+    $this->ruleset['amount_of_ceiling_lights'] += $rules['amount_of_ceiling_lights'];
   }
   
   function interpret_rules() {

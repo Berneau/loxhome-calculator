@@ -306,6 +306,10 @@
         {
           "sku": "led-strip-rgbw",
           "amount": 1
+        },
+        {
+          "sku": "200002",
+          "amount": 1
         }
       ],
       "slots": [

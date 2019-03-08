@@ -15,6 +15,10 @@ class LxhmHouse {
     $this->ruleset['amount_of_speaker_rooms'] = 0;
     $this->ruleset['is_14_or_15_selected'] = false;
     $this->ruleset['is_16_selected'] = false;
+    $this->ruleset['amount_of_rgbw_spots'] = 0;
+    $this->ruleset['amount_of_ww_spots'] = 0;
+    $this->ruleset['amount_of_pendulums'] = 0;
+    $this->ruleset['amount_of_ceiling_lights'] = 0;
   }
   
   function add_room($room) {
@@ -88,30 +92,38 @@ class LxhmHouse {
     if ($rules['has_speaker_in_room']) $this->ruleset['amount_of_speaker_rooms']++;
     if ($rules['is_14_or_15_selected']) $this->ruleset['is_14_or_15_selected'] = true;
     if ($rules['is_16_selected']) $this->ruleset['is_16_selected'] = true;
-    if ($rules['amount_of_dis_per_room'] > 0) $this->ruleset['amount_of_all_dis'] += $rules['amount_of_dis_per_room'];
+    $this->ruleset['amount_of_all_dis'] += $rules['amount_of_dis_per_room'];
+    $this->ruleset['amount_of_rgbw_spots'] += $rules['amount_of_rgbw_spots'];
+    $this->ruleset['amount_of_ww_spots'] += $rules['amount_of_ww_spots'];
+    $this->ruleset['amount_of_pendulums'] += $rules['amount_of_pendulums'];
+    $this->ruleset['amount_of_ceiling_lights'] += $rules['amount_of_ceiling_lights'];
   }
   
   function interpret_rules() {
-    $this->safely_add('new', '100001', 1);
+    $amount_of_motion_detectors = $this->ruleset['amount_of_motion_detectors'];
+    $amount_of_speaker_rooms = $this->ruleset['amount_of_speaker_rooms'];
+    $amount_of_ww_spots = $this->new_and_slots->new['led-spots-ww-global'];
+    $amount_of_all_dis = $this->ruleset['amount_of_all_dis'];
+    $amount_of_all_rgbw_spots = $this->ruleset['amount_of_rgbw_spots'];
+    $amount_of_all_ww_spots = $this->ruleset['amount_of_ww_spots'];
+    $amount_of_all_pendulums = $this->ruleset['amount_of_pendulums'];
+    $amount_of_all_ceiling_lights = $this->ruleset['amount_of_ceiling_lights'];
     
     if ($this->ruleset['needs_weather_station']) {
       $this->safely_add('new', '100246', 1);
       $this->safely_add('slots', '100218', 1);
     }
     
-    $amount_of_motion_detectors = $this->ruleset['amount_of_motion_detectors'];
     if ($amount_of_motion_detectors > 0) {
       $this->safely_add('new', 'motion-sensor', $amount_of_motion_detectors);
     }
     
-    $amount_of_speaker_rooms = $this->ruleset['amount_of_speaker_rooms'];
     if ($amount_of_speaker_rooms > 0) {
       if ($amount_of_speaker_rooms <= 4) $this->safely_add('new', '100165', 1);
       if ($amount_of_speaker_rooms > 4 && $amount_of_speaker_rooms <= 8) $this->safely_add('new', '100166', 1);
       if ($amount_of_speaker_rooms > 8 && $amount_of_speaker_rooms <= 12) $this->safely_add('new', '100167', 1);
       if ($amount_of_speaker_rooms > 12 && $amount_of_speaker_rooms <= 16) $this->safely_add('new', '100168', 1);
       if ($amount_of_speaker_rooms > 16) $this->safely_add('new', '100169', 1);
-      
       $this->safely_add('slots', '100218', $amount_of_speaker_rooms);
     }
     
@@ -122,7 +134,6 @@ class LxhmHouse {
       }
     }
     
-    $amount_of_ww_spots = $this->new_and_slots->new['led-spots-ww-global'];
     if ($amount_of_ww_spots > 0) {
       $amount_of_dimmer = intdiv_and_remainder(10, $amount_of_ww_spots);
       $amount_of_exts = intdiv_and_remainder(4, $amount_of_dimmer);
@@ -130,8 +141,30 @@ class LxhmHouse {
       $this->safely_add('slots', '100218', $amount_of_exts);
     }
     
-    $amount_of_all_dis = $this->ruleset['amount_of_all_dis'];
     if ($amount_of_all_dis > 0) $this->safely_add('new', '100242', $amount_of_all_dis);
+    
+    if ($amount_of_all_rgbw_spots > 0) {
+      $amount_to_add = intdiv_and_remainder(8, $amount_of_all_rgbw_spots);
+      $this->safely_add('new', '200002', $amount_to_add);
+    }
+    
+    if ($amount_of_ww_spots > 0) {
+      $amount_to_add = intdiv_and_remainder(40, $amount_of_ww_spots);
+      $this->safely_add('new', '200002', $amount_to_add);
+    }
+    
+    if ($amount_of_all_pendulums > 0) {
+      $amount_to_add = intdiv_and_remainder(5, $amount_of_all_pendulums);
+      $this->safely_add('new', '200002', $amount_to_add);
+    }
+    
+    if ($amount_of_all_ceiling_lights > 0) {
+      $amount_to_add = intdiv_and_remainder(3, $amount_of_all_ceiling_lights);
+      $this->safely_add('new', '200002', $amount_to_add);
+    }
+    
+    // add miniserver last
+    $this->safely_add('new', '100001', 1);
   }
 }
 ?>

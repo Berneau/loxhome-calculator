@@ -18,6 +18,10 @@ class LxhmArea {
     $this->ruleset['is_14_or_15_selected'] = false;
     $this->ruleset['is_16_selected'] = false;
     $this->ruleset['amount_of_di_slots'] = 0;
+    $this->ruleset['amount_of_rgbw_spots'] = 0;
+    $this->ruleset['amount_of_ww_spots'] = 0;
+    $this->ruleset['amount_of_pendulums'] = 0;
+    $this->ruleset['amount_of_ceiling_lights'] = 0;
   }
   
   function calculate() {
@@ -76,6 +80,13 @@ class LxhmArea {
     
     if ($this->name == 'innentuer' && $this->option == 4) {
       $this->ruleset['amount_of_di_slots'] += $this->amount;
+    }
+    
+    if ($this->name == 'loxone_lights') {
+      if ($this->option == 2) $this->ruleset['amount_of_rgbw_spots'] += $this->amount;
+      if ($this->option == 3) $this->ruleset['amount_of_ww_spots'] += $this->amount;
+      if ($this->option == 4) $this->ruleset['amount_of_pendulums'] += $this->amount;
+      if ($this->option == 5) $this->ruleset['amount_of_ceiling_lights'] += $this->amount;
     }
   }
   
