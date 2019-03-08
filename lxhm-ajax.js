@@ -118,7 +118,6 @@ function lxhmGetProducts(formData) {
       formData: JSON.stringify(formData)
     },
     success: function(response) {
-      console.log(response);
       response = JSON.parse(response);
       jQuery('#lxhm-product-container').html(response.html);
       

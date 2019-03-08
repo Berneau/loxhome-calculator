@@ -47,6 +47,9 @@ class LxhmHouse {
     // check slots needed and add to new
     $this->add_slots_to_news();
     
+    // add netzteile regarding to new_and_slots
+    $this->add_netzteile();
+    
     // return only the skus to add
     return $this->new_and_slots->new;
   }
@@ -165,6 +168,26 @@ class LxhmHouse {
     
     // add miniserver last
     $this->safely_add('new', '100001', 1);
+  }
+  
+  function add_netzteile() {
+    // add 4,2A netzteil per tree extension
+    $amount_of_tree_extensions = $this->new_and_slots->new['100218'];
+    if ($amount_of_tree_extensions > 0) $this->safely_add('new', '200002', $amount_of_tree_extensions);
+    
+    // add 4,2A netzteil if at least 1 extension -> else only 1,3A netzteil
+    $at_least_one_extension = false;
+    $extensions_to_check = array('100218', '100029', '100038' , '100002', '100114', '100116', '100283');
+    
+    for ($i = 0; $i < sizeof($extensions_to_check); $i++) {
+      if ($this->new_and_slots->new[$extensions_to_check[$i]]) {
+        $at_least_one_extension = true;
+        break;
+      }
+    }
+    
+    if ($at_least_one_extension) $this->safely_add('new', '200002', 1);
+    else $this->safely_add('new', '200001', 1);
   }
 }
 ?>

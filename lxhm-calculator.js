@@ -48,8 +48,6 @@ function lxhmGetFormInfo() {
     return false;
   }
   
-  console.log(formData);
-  
   lxhmGetProducts(formData);
 }
 
