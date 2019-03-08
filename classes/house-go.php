@@ -203,8 +203,10 @@ class LxhmHouseGo extends LxhmHouse {
     
     if ($amount_of_all_pendulums > 0) {
       $amount_to_add = intdiv_and_remainder(44, $amount_of_all_pendulums);
+      $netzteil_amount = intdiv_and_remainder(3, $amount_of_all_pendulums);
       $this->safely_add('new', 'rgbw-24V-compact-dimmer', $amount_to_add);
       $this->safely_add('slots', '100139', $amount_to_add);
+      $this->safely_add('new', '200002', $netzteil_amount);
     }
     
     if ($amount_of_air_sensor_rooms > 0) {
