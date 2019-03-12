@@ -12,7 +12,7 @@ function lxhm_get_options() {
   if ($serverType == 'miniserver') $options = $json_from_file->miniserver->$article;
   elseif ($serverType == 'miniserver-go') $options = $json_from_file->miniserver_go->$article;
   
-  $html = '<option value="null">Option wählen</option>';
+  $html = '<option value="null" disabled selected>Option wählen</option>';
   for ($i = 0; $i < sizeof($options); $i++) {
     $html .= '<option value="';
     $html .= $i+1;

@@ -36,7 +36,7 @@
       <option value="zentral">Zentral</option>
     </select>
     
-    <select name="lxhm-article-option">
+    <select name="lxhm-article-option" required>
       <option value="null" disabled selected>Optionen</option>
     </select>
   </div>
