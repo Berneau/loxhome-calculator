@@ -151,7 +151,7 @@ class LxhmHouse {
     if ($amount_of_ww_spots > 0) {
       $amount_of_dimmer = intdiv_and_remainder(10, $amount_of_ww_spots);
       $amount_of_exts = intdiv_and_remainder(4, $amount_of_dimmer);
-      $this->safely_add('slots', 'rgbw-24v-dimmer', $amount_of_dimmer);
+      $this->safely_add('slots', '100239', $amount_of_dimmer);
       $this->safely_add('slots', '100218', $amount_of_exts);
     }
     

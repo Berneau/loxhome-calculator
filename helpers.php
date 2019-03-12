@@ -34,7 +34,7 @@ function lxhm_get_slots_by_sku($sku) {
     '100002' => 8,
     '200110' => 12,
     '100029' => 14,
-    'rgbw-24v-dimmer' => 4,
+    '100239' => 4,
     'led-spot-ww' => 10
   );
   return $slots[$sku];

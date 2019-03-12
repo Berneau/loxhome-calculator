@@ -12,7 +12,7 @@
     "2": {
       "new": [
         {
-          "sku": "solidline-air",
+          "sku": "100183",
           "amount": 1
         }
       ],
@@ -51,7 +51,7 @@
     "2": {
       "new": [
         {
-          "sku": "door-window-contact-air",
+          "sku": "100210",
           "amount": 1
         }
       ],
@@ -295,7 +295,7 @@
     "1": {
       "new": [
         {
-          "sku": "rgbw-24v-dimmer",
+          "sku": "100239",
           "amount": 1
         },
         {
