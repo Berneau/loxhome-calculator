@@ -123,6 +123,7 @@ class LxhmHouse {
     
     if ($amount_of_motion_detectors > 0) {
       $this->safely_add('new', '100223', $amount_of_motion_detectors);
+      $this->safely_add('slots', '100218', $amount_of_motion_detectors);
     }
     
     if ($amount_of_speaker_rooms > 0) {
