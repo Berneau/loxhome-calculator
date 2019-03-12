@@ -95,7 +95,7 @@
     "1": {
       "new": [
         {
-          "sku": "loxone-touch",
+          "sku": "100221",
           "amount": 1
         }
       ],
@@ -109,7 +109,7 @@
     "2": {
       "new": [
         {
-          "sku": "touch-pure",
+          "sku": "100219",
           "amount": 1
         }
       ],
@@ -130,12 +130,7 @@
       ]
     },
     "4": {
-      "new": [
-        {
-          "sku": "200113",
-          "amount": 1
-        }
-      ],
+      "new": [],
       "slots": [
         {
           "sku": "100218",
@@ -148,7 +143,7 @@
     "1": {
       "new": [
         {
-          "sku": "valve-actuator",
+          "sku": "100225",
           "amount": 1
         }
       ],
@@ -281,7 +276,7 @@
       "new": [],
       "slots": [
         {
-          "sku": "rgbw-24v-dimmer",
+          "sku": "100239",
           "amount": 1
         }
       ]
@@ -304,7 +299,7 @@
           "amount": 1
         },
         {
-          "sku": "led-strip-rgbw",
+          "sku": "200100",
           "amount": 1
         },
         {
@@ -336,7 +331,7 @@
     "3": {
       "new": [
         {
-          "sku": "led-spots-ww-global",
+          "sku": "100203",
           "amount": 1
         }
       ],
@@ -345,7 +340,7 @@
     "4": {
       "new": [
         {
-          "sku": "led-pendulum-slim",
+          "sku": "100308",
           "amount": 1
         }
       ],
@@ -359,7 +354,7 @@
     "5": {
       "new": [
         {
-          "sku": "led-ceiling-light-rgbw",
+          "sku": "100288",
           "amount": 1
         }
       ],
@@ -379,7 +374,7 @@
           "amount": 1
         },
         {
-          "sku": "nfc-code-touch",
+          "sku": "100300",
           "amount": 1
         }
       ],
@@ -407,7 +402,7 @@
     "3": {
       "new": [
         {
-          "sku": "loxone-intercom",
+          "sku": "200093",
           "amount": 1
         },
         {

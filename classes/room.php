@@ -10,6 +10,8 @@ class LxhmRoom {
     $this->ruleset['needs_weather_station'] = false;
     $this->ruleset['needs_motion_detector'] = false;
     $this->ruleset['has_speaker_in_room'] = false;
+    $this->ruleset['is_10_selected'] = false;
+    $this->ruleset['is_11_selected'] = false;
     $this->ruleset['is_14_or_15_selected'] = false;
     $this->ruleset['is_16_selected'] = false;
     $this->ruleset['amount_of_di_slots_per_room'] = 0;
@@ -62,6 +64,8 @@ class LxhmRoom {
     if ($rules['needs_weather_station']) $this->ruleset['needs_weather_station'] = true;
     if ($rules['needs_motion_detector']) $this->ruleset['needs_motion_detector'] = true;
     if ($rules['has_speaker_in_room']) $this->ruleset['has_speaker_in_room'] = true;
+    if ($rules['is_10_selected']) $this->ruleset['is_10_selected'] = true;
+    if ($rules['is_11_selected']) $this->ruleset['is_11_selected'] = true;
     if ($rules['is_14_or_15_selected']) $this->ruleset['is_14_or_15_selected'] = true;
     if ($rules['is_16_selected']) $this->ruleset['is_16_selected'] = true;
     $this->ruleset['amount_of_di_slots_per_room'] += $rules['amount_of_di_slots'];
