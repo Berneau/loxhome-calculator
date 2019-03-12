@@ -25,7 +25,7 @@ class LxhmRoomGo {
     $this->ruleset['is_16_selected'] = false;
     $this->ruleset['needs_touch'] = false;
     $this->ruleset['needs_touch_pure'] = false;
-    $this->ruleset['amount_of_zahlencodes'] = 0;
+    $this->ruleset['nano_io_airs_needed'] = 0;
   }
   
   function add_area($area) {
@@ -84,6 +84,7 @@ class LxhmRoomGo {
     if ($rules['is_9_selected']) $this->ruleset['is_9_selected'] = true;
     if ($rules['is_10_selected']) $this->ruleset['is_10_selected'] = true;
     $this->ruleset['amount_of_zahlencodes'] += $rules['amount_of_zahlencodes'];
+    $this->ruleset['nano_io_airs_needed'] += $rules['nano_io_airs_needed'];
   }
   
   function interpret_rules() {

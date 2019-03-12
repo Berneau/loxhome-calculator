@@ -35,7 +35,8 @@ function lxhm_get_slots_by_sku($sku) {
     '200110' => 12,
     '100029' => 14,
     '100239' => 4,
-    'led-spot-ww' => 10
+    '100327' => 10,
+    '100153' => 6
   );
   return $slots[$sku];
 }

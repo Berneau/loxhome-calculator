@@ -85,6 +85,7 @@ class LxhmArea {
     if ($this->name == 'fenster' && $this->option == 4) $this->ruleset['amount_of_di_slots'] += $this->amount;
     
     if ($this->name == 'loxone_lights') {
+      $this->ruleset['needs_motion_detector'] = true;
       if ($this->option == 2) $this->ruleset['amount_of_rgbw_spots'] += $this->amount;
       if ($this->option == 3) $this->ruleset['amount_of_ww_spots'] += $this->amount;
       if ($this->option == 4) $this->ruleset['amount_of_pendulums'] += $this->amount;

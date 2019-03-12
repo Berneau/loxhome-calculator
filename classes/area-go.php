@@ -28,7 +28,7 @@ class LxhmAreaGo {
     $this->ruleset['is_10_selected'] = false;
     $this->ruleset['is_15_selected'] = false;
     $this->ruleset['is_16_selected'] = false;
-    $this->ruleset['amount_of_zahlencodes'] = 0;
+    $this->ruleset['nano_io_airs_needed'] = 0;
   }
   
   function calculate() {
@@ -67,73 +67,53 @@ class LxhmAreaGo {
   }
   
   function handle_extra_rules() {
-    if ($this->name == 'jalousie') $this->ruleset['needs_weather_station'] = true;
+    if ($this->name == 'jalousie') {
+      $this->ruleset['needs_weather_station'] = true;
+      if ($this->option == 1) $this->ruleset['is_1_selected'] = true;
+      if ($this->option == 1) $this->ruleset['nano_io_airs_needed'] += $this->amount;
+    }
+    
+    if ($this->name == 'fenster' && $this->option == 1) $this->ruleset['is_5_selected'] = true;
     
     if ($this->name == 'raumregelung') {
       $this->ruleset['needs_motion_detector'] = true;
+      if ($this->option == 2) $this->ruleset['needs_air_sensor'] = true;
+      if ($this->option == 3) $this->ruleset['is_15_selected'] = true;
+      if ($this->option == 3) $this->ruleset['nano_io_airs_needed'] += $this->amount;
+      if ($this->option == 4) $this->ruleset['is_16_selected'] = true;
+      if ($this->option == 4) $this->ruleset['nano_io_airs_needed'] += $this->amount;
     }
     
-    if ($this->name == 'universalbeleuchtung') $this->ruleset['needs_motion_detector'] = true;
+    if ($this->name == 'innentuer') {
+      if ($this->option == 1) $this->ruleset['is_9_selected'] = true;
+      if ($this->option == 2) $this->ruleset['is_10_selected'] = true;
+      if ($this->option == 3) $this->ruleset['nano_io_airs_needed'] += $this->amount;
+      if ($this->option == 4) $this->ruleset['nano_io_airs_needed'] += $this->amount;
+      if ($this->option == 5) $this->ruleset['nano_io_airs_needed'] += $this->amount;
+    }
+    
+    if ($this->name == 'universalbeleuchtung') {
+      $this->ruleset['needs_motion_detector'] = true;
+      if ($this->option == 1) $this->ruleset['amount_of_230V_lights'] = $this->amount;
+      if ($this->option == 3) $this->ruleset['amount_of_24V_lights'] = $this->amount;
+      if ($this->option == 4) $this->ruleset['amount_of_dimmer_lights'] = $this->amount;
+    }
     
     if ($this->name == 'speaker') {
       $this->ruleset['needs_motion_detector'] = true;
       $this->ruleset['has_speaker_in_room'] = true;
     }
     
-    if ($this->name == 'jalousie' && $this->option == 1) {
-      $this->ruleset['is_1_selected'] = true;
+    if ($this->name == 'loxone_lights') {
+      $this->ruleset['needs_motion_detector'] = true;
+      if ($this->option == 2) $this->ruleset['amount_of_rgbw_spots'] = $this->amount;
+      if ($this->option == 3) $this->ruleset['amount_of_ww_spots'] = $this->amount;
+      if ($this->option == 4) $this->ruleset['amount_of_pendulums'] = $this->amount;
     }
     
-    if ($this->name == 'fenster' && $this->option == 1) {
-      $this->ruleset['is_5_selected'] = true;
-    }
-    
-    if ($this->name == 'universalbeleuchtung' && $this->option == 1) {
-      $this->ruleset['amount_of_230V_lights'] = $this->amount;
-    }
-    
-    if ($this->name == 'universalbeleuchtung' && $this->option == 3) {
-      $this->ruleset['amount_of_24V_lights'] = $this->amount;
-    }
-    
-    if ($this->name == 'universalbeleuchtung' && $this->option == 4) {
-      $this->ruleset['amount_of_dimmer_lights'] = $this->amount;
-    }
-    
-    if ($this->name == 'loxone_lights' && $this->option == 2) {
-      $this->ruleset['amount_of_rgbw_spots'] = $this->amount;
-    }
-    
-    if ($this->name == 'loxone_lights' && $this->option == 3) {
-      $this->ruleset['amount_of_ww_spots'] = $this->amount;
-    }
-    
-    if ($this->name == 'loxone_lights' && $this->option == 4) {
-      $this->ruleset['amount_of_pendulums'] = $this->amount;
-    }
-    
-    if ($this->name == 'raumregelung' && $this->option == 2) {
-      $this->ruleset['needs_air_sensor'] = true;
-    }
-    
-    if ($this->name == 'raumregelung' && $this->option == 3) {
-      $this->ruleset['is_15_selected'] = true;
-    }
-    
-    if ($this->name == 'raumregelung' && $this->option == 4) {
-      $this->ruleset['is_16_selected'] = true;
-    }
-    
-    if ($this->name == 'innentuer' && $this->option == 1) {
-      $this->ruleset['is_9_selected'] = true;
-    }
-    
-    if ($this->name == 'innentuer' && $this->option == 2) {
-      $this->ruleset['is_10_selected'] = true;
-    }
-    
-    if ($this->name == 'zentral' && $this->option == 2) {
-      $this->ruleset['amount_of_zahlencodes'] = $this->amount;
+    if ($this->name == 'zentral') {
+      if ($this->option == 1) $this->ruleset['nano_io_airs_needed'] = $this->amount;
+      if ($this->option == 2) $this->ruleset['nano_io_airs_needed'] = $this->amount;
     }
   }
   

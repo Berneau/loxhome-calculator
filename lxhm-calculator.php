@@ -3,7 +3,7 @@
   Plugin Name: Loxhome Calculator
   Plugin URI: 
   description: A calculator for Loxhome products.
-  Version: 1.6
+  Version: 1.7
   Author: Bernhard Steger
   Author URI: https://berneau.at
   License: GPL2

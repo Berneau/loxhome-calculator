@@ -24,7 +24,7 @@ class LxhmHouseGo extends LxhmHouse {
     $this->ruleset['amount_of_air_sensor_rooms'] = 0;
     $this->ruleset['amount_of_touch_needed'] = 0;
     $this->ruleset['amount_of_touch_pure_needed'] = 0;
-    $this->ruleset['amount_of_zahlencodes'] = 0;
+    $this->ruleset['nano_io_airs_needed'] = 0;
   }
   
   function add_room($room) {
@@ -114,7 +114,7 @@ class LxhmHouseGo extends LxhmHouse {
     if ($rules['needs_air_sensor']) $this->ruleset['amount_of_air_sensor_rooms']++;
     if ($rules['needs_touch']) $this->ruleset['amount_of_touch_needed']++;
     if ($rules['needs_touch_pure']) $this->ruleset['amount_of_touch_pure_needed']++;
-    $this->ruleset['amount_of_zahlencodes'] += $rules['amount_of_zahlencodes'];
+    $this->ruleset['nano_io_airs_needed'] += $rules['nano_io_airs_needed'];
   }
   
   function interpret_rules() {
@@ -131,7 +131,7 @@ class LxhmHouseGo extends LxhmHouse {
     $amount_of_air_sensor_rooms = $this->ruleset['amount_of_air_sensor_rooms'];
     $amount_of_touch_needed = $this->ruleset['amount_of_touch_needed'];
     $amount_of_touch_pure_needed = $this->ruleset['amount_of_touch_pure_needed'];
-    $amount_of_all_zahlencodes = $this->ruleset['amount_of_zahlencodes'];
+    $amount_of_all_nano_ios = $this->ruleset['nano_io_airs_needed'];
     
     if ($this->ruleset['needs_weather_station']) {
       $this->safely_add('new', '100245', 1);
@@ -164,49 +164,46 @@ class LxhmHouseGo extends LxhmHouse {
     
     if ($this->ruleset['is_5_selected']) {
       if (!$this->ruleset['is_1_selected']) {
-        $this->safely_add('new', '100153', 1);
-        $this->safely_add('slots', '100139', 1);
+        $amount_of_all_nano_ios++;
       }
     }
     
     if ($amount_of_all_230V > 0) {
       $amount_to_add = intdiv_and_remainder(2, $amount_of_all_230V);
-      $this->safely_add('new', '100153', $amount_to_add);
-      $this->safely_add('slots', '100139', $amount_to_add);
+      $amount_of_all_nano_ios += $amount_to_add;
     }
     
     if ($amount_of_all_24V > 0) {
       $amount_to_add = intdiv_and_remainder(4, $amount_of_all_24V);
-      $this->safely_add('new', 'rgbw-24V-compact-dimmer', $amount_to_add);
+      $this->safely_add('new', '100324', $amount_to_add);
       $this->safely_add('slots', '100139', $amount_to_add);
     }
     
     if ($amount_of_all_dimmer > 0) {
       $amount_to_add = intdiv_and_remainder(4, $amount_of_all_dimmer);
-      $this->safely_add('new', 'rgbw-24V-compact-dimmer', $amount_to_add);
+      $this->safely_add('new', '100324', $amount_to_add);
       $this->safely_add('slots', '100139', $amount_to_add);
     }
     
     if ($amount_of_all_rgbw_spots > 0) {
       $amount_to_add = intdiv_and_remainder(8, $amount_of_all_rgbw_spots);
-      $this->safely_add('new', 'rgbw-24V-compact-dimmer', $amount_to_add);
+      $this->safely_add('new', '100324', $amount_to_add);
       $this->safely_add('new', '200297', $amount_to_add);
       $this->safely_add('slots', '100139', $amount_to_add);
     }
     
     if ($amount_of_all_ww_spots > 0) {
       $amount_to_add = intdiv_and_remainder(14, $amount_of_all_ww_spots);
-      $this->safely_add('new', 'rgbw-24V-compact-dimmer', $amount_to_add);
+      $this->safely_add('new', '100324', $amount_to_add);
       $this->safely_add('new', '200297', $amount_to_add);
       $this->safely_add('slots', '100139', $amount_to_add);
     }
     
     if ($amount_of_all_pendulums > 0) {
-      $amount_to_add = intdiv_and_remainder(44, $amount_of_all_pendulums);
-      $netzteil_amount = intdiv_and_remainder(3, $amount_of_all_pendulums);
-      $this->safely_add('new', 'rgbw-24V-compact-dimmer', $amount_to_add);
-      $this->safely_add('slots', '100139', $amount_to_add);
-      $this->safely_add('new', '200002', $netzteil_amount);
+      $amount_to_add = intdiv_and_remainder(3, $amount_of_all_pendulums);
+      $this->safely_add('new', '100324', $amount_to_add);
+      $this->safely_add('new', '200297', $amount_to_add);
+      $this->safely_add('slots', '100139', $amount_to_add * 2);
     }
     
     if ($amount_of_air_sensor_rooms > 0) {
@@ -224,8 +221,8 @@ class LxhmHouseGo extends LxhmHouse {
       $this->safely_add('slots', '100139', $amount_of_touch_pure_needed);
     }
     
-    if ($amount_of_all_zahlencodes > 0) {
-      $amount_to_add = intdiv_and_remainder(6, $amount_of_all_zahlencodes);
+    if ($amount_of_all_nano_ios > 0) {
+      $amount_to_add = intdiv_and_remainder(6, $amount_of_all_nano_ios);
       $this->safely_add('new', '100153', $amount_to_add);
       $this->safely_add('slots', '100139', $amount_to_add);
     }
