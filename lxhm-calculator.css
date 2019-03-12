@@ -34,6 +34,7 @@
   font-family: Arial, Helvetica, sans-serif;
   transition: border-color .3s;
   border-color: #888;
+  height: 29px;
   color: #888;
 }
 
