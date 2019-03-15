@@ -12,8 +12,8 @@ class LxhmRoomGo {
     $this->ruleset['has_speaker_in_room'] = false;
     $this->ruleset['is_1_selected'] = false;
     $this->ruleset['is_5_selected'] = false;
-    $this->ruleset['amount_of_24V_lights'] = 0;
-    $this->ruleset['amount_of_dimmer_lights'] = 0;
+    $this->ruleset['amount_of_on_off_24v'] = 0;
+    $this->ruleset['amount_of_dimmer_24v'] = 0;
     $this->ruleset['amount_of_rgbw_spots'] = 0;
     $this->ruleset['amount_of_ww_spots'] = 0;
     $this->ruleset['amount_of_pendulums'] = 0;
@@ -24,7 +24,9 @@ class LxhmRoomGo {
     $this->ruleset['is_16_selected'] = false;
     $this->ruleset['needs_touch'] = false;
     $this->ruleset['needs_touch_pure'] = false;
+    $this->ruleset['nano_io_slots_needed'] = 0;
     $this->ruleset['nano_io_airs_needed'] = 0;
+    $this->ruleset['compact_dimmers_needed'] = 0;
   }
   
   function add_area($area) {
@@ -71,8 +73,8 @@ class LxhmRoomGo {
     if ($rules['has_speaker_in_room']) $this->ruleset['has_speaker_in_room'] = true;
     if ($rules['is_1_selected']) $this->ruleset['is_1_selected'] = true;
     if ($rules['is_5_selected']) $this->ruleset['is_5_selected'] = true;
-    $this->ruleset['amount_of_24V_lights'] += $rules['amount_of_24V_lights'];
-    $this->ruleset['amount_of_dimmer_lights'] += $rules['amount_of_dimmer_lights'];
+    $this->ruleset['amount_of_on_off_24v'] += $rules['amount_of_on_off_24v'];
+    $this->ruleset['amount_of_dimmer_24v'] += $rules['amount_of_dimmer_24v'];
     $this->ruleset['amount_of_rgbw_spots'] += $rules['amount_of_rgbw_spots'];
     $this->ruleset['amount_of_ww_spots'] += $rules['amount_of_ww_spots'];
     $this->ruleset['amount_of_pendulums'] += $rules['amount_of_pendulums'];
@@ -82,7 +84,7 @@ class LxhmRoomGo {
     if ($rules['is_9_selected']) $this->ruleset['is_9_selected'] = true;
     if ($rules['is_10_selected']) $this->ruleset['is_10_selected'] = true;
     $this->ruleset['amount_of_zahlencodes'] += $rules['amount_of_zahlencodes'];
-    $this->ruleset['nano_io_airs_needed'] += $rules['nano_io_airs_needed'];
+    $this->ruleset['nano_io_slots_needed'] += $rules['nano_io_slots_needed'];
   }
   
   function interpret_rules() {
@@ -96,6 +98,42 @@ class LxhmRoomGo {
       if (!$this->ruleset['is_10_selected']) {
         $this->ruleset['needs_touch_pure'] = true;
       }
+    }
+    
+    if ($this->ruleset['is_5_selected']) {
+      if (!$this->ruleset['is_1_selected']) {
+        $this->ruleset['nano_io_slots_needed']++;
+      }
+    }
+    
+    if ($this->ruleset['amount_of_on_off_24v'] > 0) {
+      $amount_to_add = intdiv_and_remainder(4, $this->ruleset['amount_of_on_off_24v']);
+      $this->ruleset['compact_dimmers_needed'] += $amount_to_add;
+    }
+    
+    if ($this->ruleset['amount_of_dimmer_24v'] > 0) {
+      $amount_to_add = intdiv_and_remainder(4, $this->ruleset['amount_of_dimmer_24v']);
+      $this->ruleset['compact_dimmers_needed'] += $amount_to_add;
+    }
+    
+    if ($this->ruleset['amount_of_rgbw_spots'] > 0) {
+      $amount_to_add = intdiv_and_remainder(8, $this->ruleset['amount_of_rgbw_spots']);
+      $this->ruleset['compact_dimmers_needed'] += $amount_to_add;
+    }
+    
+    if ($this->ruleset['amount_of_ww_spots'] > 0) {
+      $amount_to_add = intdiv_and_remainder(14, $this->ruleset['amount_of_ww_spots']);
+      $this->ruleset['compact_dimmers_needed'] += $amount_to_add;
+    }
+    
+    if ($this->ruleset['amount_of_pendulums'] > 0) {
+      $amount_to_add = intdiv_and_remainder(3, $this->ruleset['amount_of_pendulums']);
+      $this->ruleset['compact_dimmers_needed'] += $amount_to_add;
+    }
+    
+    if ($this->ruleset['nano_io_slots_needed'] > 0) {
+      $amount_to_add = intdiv_and_remainder(6, $this->ruleset['nano_io_slots_needed']);
+      $this->ruleset['nano_io_airs_needed'] = $amount_to_add;
     }
   }
 }

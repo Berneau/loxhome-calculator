@@ -15,19 +15,14 @@ class LxhmHouseGo extends LxhmHouse {
     $this->ruleset['amount_of_speaker_rooms'] = 0;
     $this->ruleset['is_1_selected'] = false;
     $this->ruleset['is_5_selected'] = false;
-    $this->ruleset['amount_of_24V_lights'] = 0;
-    $this->ruleset['amount_of_dimmer_lights'] = 0;
-    $this->ruleset['amount_of_rgbw_spots'] = 0;
-    $this->ruleset['amount_of_ww_spots'] = 0;
-    $this->ruleset['amount_of_pendulums'] = 0;
     $this->ruleset['amount_of_air_sensor_rooms'] = 0;
     $this->ruleset['amount_of_touch_needed'] = 0;
     $this->ruleset['amount_of_touch_pure_needed'] = 0;
     $this->ruleset['nano_io_airs_needed'] = 0;
+    $this->ruleset['compact_dimmers_needed'] = 0;
   }
   
   function add_room($room) {
-    // if (!isset($this->rooms)) $this->rooms = array();
     array_push($this->rooms, $room);
   }
   
@@ -104,15 +99,11 @@ class LxhmHouseGo extends LxhmHouse {
     if ($rules['has_speaker_in_room']) $this->ruleset['amount_of_speaker_rooms']++;
     if ($rules['is_1_selected']) $this->ruleset['is_1_selected'] = true;
     if ($rules['is_5_selected']) $this->ruleset['is_5_selected'] = true;
-    $this->ruleset['amount_of_24V_lights'] += $rules['amount_of_24V_lights'];
-    $this->ruleset['amount_of_dimmer_lights'] += $rules['amount_of_dimmer_lights'];
-    $this->ruleset['amount_of_rgbw_spots'] += $rules['amount_of_rgbw_spots'];
-    $this->ruleset['amount_of_ww_spots'] += $rules['amount_of_ww_spots'];
-    $this->ruleset['amount_of_pendulums'] += $rules['amount_of_pendulums'];
     if ($rules['needs_air_sensor']) $this->ruleset['amount_of_air_sensor_rooms']++;
     if ($rules['needs_touch']) $this->ruleset['amount_of_touch_needed']++;
     if ($rules['needs_touch_pure']) $this->ruleset['amount_of_touch_pure_needed']++;
     $this->ruleset['nano_io_airs_needed'] += $rules['nano_io_airs_needed'];
+    $this->ruleset['compact_dimmers_needed'] += $rules['compact_dimmers_needed'];
   }
   
   function interpret_rules() {
@@ -120,15 +111,11 @@ class LxhmHouseGo extends LxhmHouse {
     $amount_of_speaker_rooms = $this->ruleset['amount_of_speaker_rooms'];
     $amount_of_speakers = $this->new_and_slots->new['200097'];
     $amount_of_all_dis = $this->ruleset['amount_of_all_dis'];
-    $amount_of_all_24V = $this->ruleset['amount_of_24V_lights'];
-    $amount_of_all_dimmer = $this->ruleset['amount_of_dimmer_lights'];
-    $amount_of_all_rgbw_spots = $this->ruleset['amount_of_rgbw_spots'];
-    $amount_of_all_ww_spots = $this->ruleset['amount_of_ww_spots'];
-    $amount_of_all_pendulums = $this->ruleset['amount_of_pendulums'];
     $amount_of_air_sensor_rooms = $this->ruleset['amount_of_air_sensor_rooms'];
     $amount_of_touch_needed = $this->ruleset['amount_of_touch_needed'];
     $amount_of_touch_pure_needed = $this->ruleset['amount_of_touch_pure_needed'];
     $amount_of_all_nano_ios = $this->ruleset['nano_io_airs_needed'];
+    $amount_of_all_compact_dimmers = $this->ruleset['compact_dimmers_needed'];
     
     if ($this->ruleset['needs_weather_station']) {
       $this->safely_add('new', '100245', 1);
@@ -158,44 +145,11 @@ class LxhmHouseGo extends LxhmHouse {
     if ($amount_of_all_dis > 0) {
       $this->safely_add('new', '100242', $amount_of_all_dis);
     }
-    
-    if ($this->ruleset['is_5_selected']) {
-      if (!$this->ruleset['is_1_selected']) {
-        $amount_of_all_nano_ios++;
-      }
-    }
-    
-    if ($amount_of_all_24V > 0) {
-      $amount_to_add = intdiv_and_remainder(4, $amount_of_all_24V);
-      $this->safely_add('new', '100324', $amount_to_add);
-      $this->safely_add('slots', '100139', $amount_to_add);
-    }
-    
-    if ($amount_of_all_dimmer > 0) {
-      $amount_to_add = intdiv_and_remainder(4, $amount_of_all_dimmer);
-      $this->safely_add('new', '100324', $amount_to_add);
-      $this->safely_add('slots', '100139', $amount_to_add);
-    }
-    
-    if ($amount_of_all_rgbw_spots > 0) {
-      $amount_to_add = intdiv_and_remainder(8, $amount_of_all_rgbw_spots);
-      $this->safely_add('new', '100324', $amount_to_add);
-      $this->safely_add('new', '200297', $amount_to_add);
-      $this->safely_add('slots', '100139', $amount_to_add);
-    }
-    
-    if ($amount_of_all_ww_spots > 0) {
-      $amount_to_add = intdiv_and_remainder(14, $amount_of_all_ww_spots);
-      $this->safely_add('new', '100324', $amount_to_add);
-      $this->safely_add('new', '200297', $amount_to_add);
-      $this->safely_add('slots', '100139', $amount_to_add);
-    }
-    
-    if ($amount_of_all_pendulums > 0) {
-      $amount_to_add = intdiv_and_remainder(3, $amount_of_all_pendulums);
-      $this->safely_add('new', '100324', $amount_to_add);
-      $this->safely_add('new', '200297', $amount_to_add);
-      $this->safely_add('slots', '100139', $amount_to_add * 2);
+ 
+    if ($amount_of_all_compact_dimmers > 0) {
+      $this->safely_add('new', '100324', $amount_of_all_compact_dimmers);
+      $this->safely_add('new', '200297', $amount_of_all_compact_dimmers);
+      $this->safely_add('slots', '100139', $amount_of_all_compact_dimmers);
     }
     
     if ($amount_of_air_sensor_rooms > 0) {
@@ -213,10 +167,10 @@ class LxhmHouseGo extends LxhmHouse {
       $this->safely_add('slots', '100139', $amount_of_touch_pure_needed);
     }
     
+    // add all nano ios of all rooms
     if ($amount_of_all_nano_ios > 0) {
-      $amount_to_add = intdiv_and_remainder(6, $amount_of_all_nano_ios);
-      $this->safely_add('new', '100153', $amount_to_add);
-      $this->safely_add('slots', '100139', $amount_to_add);
+      $this->safely_add('new', '100153', $amount_of_all_nano_ios);
+      $this->safely_add('slots', '100139', $amount_of_all_nano_ios);
     }
   }
 }
