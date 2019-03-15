@@ -24,6 +24,8 @@ class LxhmArea {
     $this->ruleset['amount_of_ww_spots'] = 0;
     $this->ruleset['amount_of_pendulums'] = 0;
     $this->ruleset['amount_of_ceiling_lights'] = 0;
+    $this->ruleset['amount_of_dimmer_leds'] = 0;
+    $this->ruleset['needs_room_sensor'] = false;
   }
   
   function calculate() {
@@ -73,9 +75,13 @@ class LxhmArea {
       if ($this->option == 1) $this->ruleset['is_14_or_15_selected'] = true;
       if ($this->option == 2) $this->ruleset['is_14_or_15_selected'] = true;
       if ($this->option == 3) $this->ruleset['is_16_selected'] = true;
+      if ($this->option == 4) $this->ruleset['needs_room_sensor'] = true;
     }
     
-    if ($this->name == 'universalbeleuchtung') $this->ruleset['needs_motion_detector'] = true;
+    if ($this->name == 'universalbeleuchtung') {
+      $this->ruleset['needs_motion_detector'] = true;
+      if ($this->option == 4) $this->ruleset['amount_of_dimmer_leds'] += $this->amount;
+    }
     
     if ($this->name == 'speaker') {
       $this->ruleset['needs_motion_detector'] = true;

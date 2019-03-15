@@ -15,7 +15,6 @@ class LxhmHouseGo extends LxhmHouse {
     $this->ruleset['amount_of_speaker_rooms'] = 0;
     $this->ruleset['is_1_selected'] = false;
     $this->ruleset['is_5_selected'] = false;
-    $this->ruleset['amount_of_230V_lights'] = 0;
     $this->ruleset['amount_of_24V_lights'] = 0;
     $this->ruleset['amount_of_dimmer_lights'] = 0;
     $this->ruleset['amount_of_rgbw_spots'] = 0;
@@ -105,7 +104,6 @@ class LxhmHouseGo extends LxhmHouse {
     if ($rules['has_speaker_in_room']) $this->ruleset['amount_of_speaker_rooms']++;
     if ($rules['is_1_selected']) $this->ruleset['is_1_selected'] = true;
     if ($rules['is_5_selected']) $this->ruleset['is_5_selected'] = true;
-    $this->ruleset['amount_of_230V_lights'] += $rules['amount_of_230V_lights'];
     $this->ruleset['amount_of_24V_lights'] += $rules['amount_of_24V_lights'];
     $this->ruleset['amount_of_dimmer_lights'] += $rules['amount_of_dimmer_lights'];
     $this->ruleset['amount_of_rgbw_spots'] += $rules['amount_of_rgbw_spots'];
@@ -122,7 +120,6 @@ class LxhmHouseGo extends LxhmHouse {
     $amount_of_speaker_rooms = $this->ruleset['amount_of_speaker_rooms'];
     $amount_of_speakers = $this->new_and_slots->new['200097'];
     $amount_of_all_dis = $this->ruleset['amount_of_all_dis'];
-    $amount_of_all_230V = $this->ruleset['amount_of_230V_lights'];
     $amount_of_all_24V = $this->ruleset['amount_of_24V_lights'];
     $amount_of_all_dimmer = $this->ruleset['amount_of_dimmer_lights'];
     $amount_of_all_rgbw_spots = $this->ruleset['amount_of_rgbw_spots'];
@@ -166,11 +163,6 @@ class LxhmHouseGo extends LxhmHouse {
       if (!$this->ruleset['is_1_selected']) {
         $amount_of_all_nano_ios++;
       }
-    }
-    
-    if ($amount_of_all_230V > 0) {
-      $amount_to_add = intdiv_and_remainder(2, $amount_of_all_230V);
-      $amount_of_all_nano_ios += $amount_to_add;
     }
     
     if ($amount_of_all_24V > 0) {

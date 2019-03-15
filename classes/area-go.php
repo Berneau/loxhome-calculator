@@ -17,7 +17,6 @@ class LxhmAreaGo {
     $this->ruleset['has_speaker_in_room'] = false;
     $this->ruleset['is_1_selected'] = false;
     $this->ruleset['is_5_selected'] = false;
-    $this->ruleset['amount_of_230V_lights'] = 0;
     $this->ruleset['amount_of_24V_lights'] = 0;
     $this->ruleset['amount_of_dimmer_lights'] = 0;
     $this->ruleset['amount_of_rgbw_spots'] = 0;
@@ -94,7 +93,6 @@ class LxhmAreaGo {
     
     if ($this->name == 'universalbeleuchtung') {
       $this->ruleset['needs_motion_detector'] = true;
-      if ($this->option == 1) $this->ruleset['amount_of_230V_lights'] = $this->amount;
       if ($this->option == 3) $this->ruleset['amount_of_24V_lights'] = $this->amount;
       if ($this->option == 4) $this->ruleset['amount_of_dimmer_lights'] = $this->amount;
     }
@@ -109,11 +107,6 @@ class LxhmAreaGo {
       if ($this->option == 2) $this->ruleset['amount_of_rgbw_spots'] = $this->amount;
       if ($this->option == 3) $this->ruleset['amount_of_ww_spots'] = $this->amount;
       if ($this->option == 4) $this->ruleset['amount_of_pendulums'] = $this->amount;
-    }
-    
-    if ($this->name == 'zentral') {
-      if ($this->option == 1) $this->ruleset['nano_io_airs_needed'] = $this->amount;
-      if ($this->option == 2) $this->ruleset['nano_io_airs_needed'] = $this->amount;
     }
   }
   

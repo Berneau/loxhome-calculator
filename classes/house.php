@@ -21,6 +21,8 @@ class LxhmHouse {
     $this->ruleset['amount_of_ww_spots'] = 0;
     $this->ruleset['amount_of_pendulums'] = 0;
     $this->ruleset['amount_of_ceiling_lights'] = 0;
+    $this->ruleset['amount_of_dimmer_leds'] = 0;
+    $this->ruleset['amount_of_room_sensors'] = 0;
   }
   
   function add_room($room) {
@@ -104,6 +106,8 @@ class LxhmHouse {
     $this->ruleset['amount_of_ww_spots'] += $rules['amount_of_ww_spots'];
     $this->ruleset['amount_of_pendulums'] += $rules['amount_of_pendulums'];
     $this->ruleset['amount_of_ceiling_lights'] += $rules['amount_of_ceiling_lights'];
+    $this->ruleset['amount_of_dimmer_leds'] += $rules['amount_of_dimmer_leds'];
+    if ($rules['needs_room_sensor']) $this->ruleset['amount_of_room_sensors']++;
   }
   
   function interpret_rules() {
@@ -115,6 +119,8 @@ class LxhmHouse {
     $amount_of_all_ww_spots = $this->ruleset['amount_of_ww_spots'];
     $amount_of_all_pendulums = $this->ruleset['amount_of_pendulums'];
     $amount_of_all_ceiling_lights = $this->ruleset['amount_of_ceiling_lights'];
+    $amount_of_all_dimmer_leds = $this->ruleset['amount_of_dimmer_leds'];
+    $amount_of_all_room_sensors = $this->ruleset['amount_of_room_sensors'];
     
     if ($this->ruleset['needs_weather_station']) {
       $this->safely_add('new', '100246', 1);
@@ -150,7 +156,7 @@ class LxhmHouse {
     }
     
     if ($amount_of_ww_spots > 0) {
-      $amount_of_dimmer = intdiv_and_remainder(10, $amount_of_ww_spots);
+      $amount_of_dimmer = intdiv_and_remainder(5, $amount_of_ww_spots);
       $amount_of_exts = intdiv_and_remainder(4, $amount_of_dimmer);
       $this->safely_add('slots', '100239', $amount_of_dimmer);
       $this->safely_add('slots', '100218', $amount_of_exts);
@@ -176,6 +182,15 @@ class LxhmHouse {
     if ($amount_of_all_ceiling_lights > 0) {
       $amount_to_add = intdiv_and_remainder(3, $amount_of_all_ceiling_lights);
       $this->safely_add('new', '200002', $amount_to_add);
+    }
+    
+    if ($amount_of_all_dimmer_leds > 0) {
+      $amount_to_add = intdiv_and_remainder(4, $amount_of_all_dimmer_leds);
+      $this->safely_add('new', '200002', $amount_to_add);
+    }
+    
+    if ($amount_of_all_room_sensors > 0) {
+      $this->safely_add('new', 'room-comfort-sensor-tree', $amount_of_all_room_sensors);
     }
     
     // add miniserver last

@@ -12,7 +12,6 @@ class LxhmRoomGo {
     $this->ruleset['has_speaker_in_room'] = false;
     $this->ruleset['is_1_selected'] = false;
     $this->ruleset['is_5_selected'] = false;
-    $this->ruleset['amount_of_230V_lights'] = 0;
     $this->ruleset['amount_of_24V_lights'] = 0;
     $this->ruleset['amount_of_dimmer_lights'] = 0;
     $this->ruleset['amount_of_rgbw_spots'] = 0;
@@ -72,7 +71,6 @@ class LxhmRoomGo {
     if ($rules['has_speaker_in_room']) $this->ruleset['has_speaker_in_room'] = true;
     if ($rules['is_1_selected']) $this->ruleset['is_1_selected'] = true;
     if ($rules['is_5_selected']) $this->ruleset['is_5_selected'] = true;
-    $this->ruleset['amount_of_230V_lights'] += $rules['amount_of_230V_lights'];
     $this->ruleset['amount_of_24V_lights'] += $rules['amount_of_24V_lights'];
     $this->ruleset['amount_of_dimmer_lights'] += $rules['amount_of_dimmer_lights'];
     $this->ruleset['amount_of_rgbw_spots'] += $rules['amount_of_rgbw_spots'];

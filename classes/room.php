@@ -20,6 +20,8 @@ class LxhmRoom {
     $this->ruleset['amount_of_ww_spots'] = 0;
     $this->ruleset['amount_of_pendulums'] = 0;
     $this->ruleset['amount_of_ceiling_lights'] = 0;
+    $this->ruleset['amount_of_dimmer_leds'] = 0;
+    $this->ruleset['needs_room_sensor'] = false;
   }
   
   function add_area($area) {
@@ -73,6 +75,8 @@ class LxhmRoom {
     $this->ruleset['amount_of_ww_spots'] += $rules['amount_of_ww_spots'];
     $this->ruleset['amount_of_pendulums'] += $rules['amount_of_pendulums'];
     $this->ruleset['amount_of_ceiling_lights'] += $rules['amount_of_ceiling_lights'];
+    $this->ruleset['amount_of_dimmer_leds'] += $rules['amount_of_dimmer_leds'];
+    if ($rules['needs_room_sensor']) $this->ruleset['needs_room_sensor'] = true;
   }
   
   function interpret_rules() {
