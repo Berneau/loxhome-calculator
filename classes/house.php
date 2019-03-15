@@ -13,10 +13,8 @@ class LxhmHouse {
     $this->ruleset['needs_weather_station'] = false;
     $this->ruleset['amount_of_motion_detectors'] = 0;
     $this->ruleset['amount_of_speaker_rooms'] = 0;
-    $this->ruleset['is_10_selected'] = false;
-    $this->ruleset['is_11_selected'] = false;
-    $this->ruleset['is_14_or_15_selected'] = false;
-    $this->ruleset['is_16_selected'] = false;
+    $this->ruleset['amount_of_touch_needed'] = 0;
+    $this->ruleset['amount_of_touch_pure_needed'] = 0;
     $this->ruleset['amount_of_rgbw_spots'] = 0;
     $this->ruleset['amount_of_ww_spots'] = 0;
     $this->ruleset['amount_of_pendulums'] = 0;
@@ -97,10 +95,8 @@ class LxhmHouse {
     if ($rules['needs_weather_station']) $this->ruleset['needs_weather_station'] = true;
     if ($rules['needs_motion_detector']) $this->ruleset['amount_of_motion_detectors']++;
     if ($rules['has_speaker_in_room']) $this->ruleset['amount_of_speaker_rooms']++;
-    if ($rules['is_10_selected']) $this->ruleset['is_10_selected'] = true;
-    if ($rules['is_11_selected']) $this->ruleset['is_11_selected'] = true;
-    if ($rules['is_14_or_15_selected']) $this->ruleset['is_14_or_15_selected'] = true;
-    if ($rules['is_16_selected']) $this->ruleset['is_16_selected'] = true;
+    if ($rules['needs_touch']) $this->ruleset['amount_of_touch_needed']++;
+    if ($rules['needs_touch_pure']) $this->ruleset['amount_of_touch_pure_needed']++;
     $this->ruleset['amount_of_all_dis'] += $rules['amount_of_dis_per_room'];
     $this->ruleset['amount_of_rgbw_spots'] += $rules['amount_of_rgbw_spots'];
     $this->ruleset['amount_of_ww_spots'] += $rules['amount_of_ww_spots'];
@@ -121,6 +117,8 @@ class LxhmHouse {
     $amount_of_all_ceiling_lights = $this->ruleset['amount_of_ceiling_lights'];
     $amount_of_all_dimmer_leds = $this->ruleset['amount_of_dimmer_leds'];
     $amount_of_all_room_sensors = $this->ruleset['amount_of_room_sensors'];
+    $amount_of_touch_needed = $this->ruleset['amount_of_touch_needed'];
+    $amount_of_touch_pure_needed = $this->ruleset['amount_of_touch_pure_needed'];
     
     if ($this->ruleset['needs_weather_station']) {
       $this->safely_add('new', '100246', 1);
@@ -140,19 +138,15 @@ class LxhmHouse {
       if ($amount_of_speaker_rooms > 16) $this->safely_add('new', '100169', 1);
       $this->safely_add('slots', '100218', $amount_of_speaker_rooms);
     }
-    
-    if ($this->ruleset['is_14_or_15_selected']) {
-      if (!$this->ruleset['is_10_selected']) {
-        $this->safely_add('new', '100221', 1);
-        $this->safely_add('slots', '100218', 1);
-      }
+
+    if ($amount_of_touch_needed > 0) {
+      $this->safely_add('new', '100221', $amount_of_touch_needed);
+      $this->safely_add('slots', '100218', $amount_of_touch_needed);
     }
     
-    if ($this->ruleset['is_16_selected']) {
-      if (!$this->ruleset['is_11_selected']) {
-        $this->safely_add('new', '100219', 1);
-        $this->safely_add('slots', '100218', 1);
-      }
+    if ($amount_of_touch_pure_needed > 0) {
+      $this->safely_add('new', '100219', $amount_of_touch_pure_needed);
+      $this->safely_add('slots', '100218', $amount_of_touch_pure_needed);
     }
     
     if ($amount_of_ww_spots > 0) {

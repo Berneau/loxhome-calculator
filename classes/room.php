@@ -14,6 +14,8 @@ class LxhmRoom {
     $this->ruleset['is_11_selected'] = false;
     $this->ruleset['is_14_or_15_selected'] = false;
     $this->ruleset['is_16_selected'] = false;
+    $this->ruleset['needs_touch'] = false;
+    $this->ruleset['needs_touch_pure'] = false;
     $this->ruleset['amount_of_di_slots_per_room'] = 0;
     $this->ruleset['amount_of_dis_per_room'] = 0;
     $this->ruleset['amount_of_rgbw_spots'] = 0;
@@ -80,6 +82,19 @@ class LxhmRoom {
   }
   
   function interpret_rules() {
+    
+    if ($this->ruleset['is_14_or_15_selected']) {
+      if (!$this->ruleset['is_10_selected']) {
+        $this->ruleset['needs_touch'] = true;
+      }
+    }
+    
+    if ($this->ruleset['is_16_selected']) {
+      if (!$this->ruleset['is_11_selected']) {
+        $this->ruleset['needs_touch_pure'] = true;
+      }
+    }
+    
     $amount_of_di_slots = $this->ruleset['amount_of_di_slots_per_room'];
     if ($amount_of_di_slots > 0) {
       $amount_of_dis_per_room = intdiv_and_remainder(6, $amount_of_di_slots);
