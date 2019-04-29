@@ -13,14 +13,14 @@
         <input id="miniserver" class="lxhm-custom-radio" type="radio" name="lxhm-server-type" value="miniserver">
         <label for="miniserver" class="lxhm-custom-label">
           <h2>Miniserver</h2>
-          <img src="<?= get_site_url() ?>/wp-content/uploads/2019/04/miniserver.png" alt="miniserver">
+          <img src="<?= get_site_url() ?>/wp-content/uploads/2019/01/miniserver.png" alt="miniserver">
           <span>Für alle Neubauer, Sanierer und Projekte die die Möglichkeit haben mit Kabel zu arbeiten.</span>
         </label>
         
         <input id="miniserver-go" class="lxhm-custom-radio" type="radio" name="lxhm-server-type" value="miniserver-go">
         <label for="miniserver-go" class="lxhm-custom-label">
           <h2>Miniserver GO</h2>
-          <img src="<?= get_site_url() ?>/wp-content/uploads/2019/04/miniservergo.png" alt="miniserver-go">
+          <img src="<?= get_site_url() ?>/wp-content/uploads/2019/01/miniservergo.png" alt="miniserver-go">
           <span>Für alle Nachrüster und bestehende Projekte die mit höchster Qualität und Funkbasis Ihr Smart Home aufrüsten wollen.</span>
         </label>
       </div>
