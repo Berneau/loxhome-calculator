@@ -3,20 +3,31 @@
     
     <div class="lxhm-container">
       <div class="lxhm-section lxhm-row">
-        
         <span class="title">Schritt 1:</span>
         <div class="action">
-          <select name="lxhm-server-type" required>
-            <option value="null" selected disabled>Serverform Auswählen</option>
-            <option value="miniserver">Miniserver</option>
-            <option value="miniserver-go">Miniserver GO</option>
-          </select>
-          <span class="lxhm-server-warning">
-            <svg viewBox="0 0 24 24"><path d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
-            Nachträgliches Ändern der Serverform setzt alle Bereich-Optionen zurück.
-          </span>
+          <span>Wählen Sie die für Sie passende Serverform aus:</span>
         </div>
+      </div>
+      
+      <div class="lxhm-server-select-wrapper">
+        <input id="miniserver" class="lxhm-custom-radio" type="radio" name="lxhm-server-type" value="miniserver">
+        <label for="miniserver" class="lxhm-custom-label">
+          <h2>Miniserver</h2>
+          <img src="<?= get_site_url() ?>/wp-content/uploads/2019/04/miniserver.png" alt="miniserver">
+          <span>Für alle Neubauer, Sanierer und Projekte die die Möglichkeit haben mit Kabel zu arbeiten.</span>
+        </label>
         
+        <input id="miniserver-go" class="lxhm-custom-radio" type="radio" name="lxhm-server-type" value="miniserver-go">
+        <label for="miniserver-go" class="lxhm-custom-label">
+          <h2>Miniserver GO</h2>
+          <img src="<?= get_site_url() ?>/wp-content/uploads/2019/04/miniservergo.png" alt="miniserver-go">
+          <span>Für alle Nachrüster und bestehende Projekte die mit höchster Qualität und Funkbasis Ihr Smart Home aufrüsten wollen.</span>
+        </label>
+      </div>
+      
+      <div class="lxhm-server-warning">
+        <svg viewBox="0 0 24 24"><path d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
+        <span>Nachträgliches Ändern der Serverform setzt alle Bereich-Optionen zurück.</span>
       </div>
     </div>
     

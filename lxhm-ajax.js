@@ -84,7 +84,7 @@ function lxhmGetArticleOptions(elem) {
   var optionsSelect = jQuery(elem).parents('.lxhm-article').find('select[name="lxhm-article-option"]');
   lxhmChangeElemState(optionsSelect);
   
-  var serverType = jQuery('select[name="lxhm-server-type"]').val();
+  var serverType = jQuery('input[name="lxhm-server-type"]').val();
   if (!serverType) return;
   
   jQuery.ajax({
@@ -109,7 +109,7 @@ function lxhmGetArticleOptions(elem) {
 
 function lxhmGetTooltips() {
   
-  var serverType = jQuery('select[name="lxhm-server-type"]').val();
+  var serverType = jQuery('input[name="lxhm-server-type"]').val();
   if (!serverType) return;
   
   jQuery.ajax({

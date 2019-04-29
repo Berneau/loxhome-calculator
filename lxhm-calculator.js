@@ -30,12 +30,10 @@ jQuery(document).ready( function() {
     lxhmUpdateTooltip(this);
   });
   
-  jQuery('body').on('change', 'select[name="lxhm-server-type"]', function() {
+  jQuery('body').on('change', 'input[name="lxhm-server-type"]', function() {
     lxhmEnableSelections();
     
     lxhmResetArticleOptions();
-    
-    lxhmShowServerWarning();
     
     lxhmGetTooltips();
     
@@ -62,7 +60,7 @@ function lxhmGetFormInfo() {
 }
 
 function lxhmGetServerType() {
-  return jQuery('select[name="lxhm-server-type"]').val() || null;
+  return jQuery('input[name="lxhm-server-type"]').val() || null;
 }
 
 function lxhmGetRooms() {
@@ -103,10 +101,6 @@ function lxhmEnableSelections() {
   jQuery('#lxhm-add-room').prop('disabled', false);
   jQuery('#lxhm-calculate').prop('disabled', false);
   jQuery('#lxhm-add-to-cart').prop('disabled', false);
-}
-
-function lxhmShowServerWarning() {
-  jQuery('.lxhm-server-warning').css('display', 'inline-block');
 }
 
 function lxhmResetArticleOptions() {
