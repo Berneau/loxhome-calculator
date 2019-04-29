@@ -107,6 +107,28 @@ function lxhmGetArticleOptions(elem) {
   });
 }
 
+function lxhmGetTooltips() {
+  
+  var serverType = jQuery('select[name="lxhm-server-type"]').val();
+  if (!serverType) return;
+  
+  jQuery.ajax({
+    url: ajax_object.ajaxurl,
+    type: 'POST',
+    data: {
+      action: 'lxhm_get_tooltips',
+      serverType: serverType
+    },
+    success: function(response) {
+      response = JSON.parse(response);
+      window.lxhmTooltips = response.data;
+    },
+    error: function(err) {
+      console.log('error', err);
+    }
+  });
+}
+
 
 function lxhmGetProducts(formData) {
   

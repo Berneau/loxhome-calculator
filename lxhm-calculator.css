@@ -173,6 +173,40 @@
   margin-right: 5px;
 }
 
+.lxhm-article .lxhm-options {
+  align-items: center;
+  display: flex;
+}
+
+.lxhm-article .lxhm-tooltip {
+  position: relative;
+  cursor: default;
+  height: 22px;
+  width: 22px;
+}
+
+.lxhm-article .lxhm-tooltip:focus .tooltip-text,
+.lxhm-article .lxhm-tooltip:hover .tooltip-text {
+  display: inline-block;
+}
+
+.lxhm-article .lxhm-tooltip path {
+  fill: #888;
+}
+
+.lxhm-article .lxhm-tooltip .tooltip-text {
+  background-color: #4c4c4c;
+  position: absolute;
+  border-radius: 4px;
+  min-width: 300px;
+  display: none;
+  padding: 5px;
+  color: #fff;
+  z-index: 5;
+  left: 29px;
+  top: 0;
+}
+
 .lxhm-product,
 .lxhm-sum-product {
   padding: 3px 10px 3px 3px;

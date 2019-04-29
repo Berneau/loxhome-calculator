@@ -6,11 +6,15 @@ function lxhm_get_options() {
   if (!$article) return;
   if (!$serverType) return;
   
-  $json_from_file = lxhm_read_json_file('area-options');
-  
+  $options_json = lxhm_read_json_file('area-options');
   $options;
-  if ($serverType == 'miniserver') $options = $json_from_file->miniserver->$article;
-  elseif ($serverType == 'miniserver-go') $options = $json_from_file->miniserver_go->$article;
+  if ($serverType == 'miniserver') $options = $options_json->miniserver->$article;
+  elseif ($serverType == 'miniserver-go') $options = $options_json->miniserver_go->$article;
+  
+  $tooltips_json = lxhm_read_json_file('area-tooltips');
+  $tooltips;
+  if ($serverType == 'miniserver') $tooltips = $tooltips_json->miniserver->$article;
+  elseif ($serverType == 'miniserver-go') $tooltips = $tooltips_json->miniserver_go->$article;
   
   $html = '<option value="null" disabled selected>Option wählen</option>';
   for ($i = 0; $i < sizeof($options); $i++) {
@@ -20,8 +24,8 @@ function lxhm_get_options() {
     $html .= $options[$i];
     $html .= '</option>';
   }
-
-  echo lxhm_create_response($html);
+  
+  echo lxhm_create_response($html, $tooltips);
   wp_die();
 }
 ?>

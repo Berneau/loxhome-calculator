@@ -37,6 +37,7 @@
   require_once LXHM_PLUGIN_DIR . '/functions/get-options.php';
   require_once LXHM_PLUGIN_DIR . '/functions/calculate-rooms.php';
   require_once LXHM_PLUGIN_DIR . '/functions/add-to-cart.php';
+  require_once LXHM_PLUGIN_DIR . '/functions/get-tooltips.php';
   
   require_once LXHM_PLUGIN_DIR . '/classes/response.php';
   require_once LXHM_PLUGIN_DIR . '/classes/house.php';
@@ -45,6 +46,4 @@
   require_once LXHM_PLUGIN_DIR . '/classes/house-go.php';
   require_once LXHM_PLUGIN_DIR . '/classes/room-go.php';
   require_once LXHM_PLUGIN_DIR . '/classes/area-go.php';
-  
-  
 ?>

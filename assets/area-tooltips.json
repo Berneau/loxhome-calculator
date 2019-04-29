@@ -1,0 +1,100 @@
+{
+  "miniserver": {
+    "jalousie": [
+      "Für alle, die bereits Rohrmotoren oder Antriebe haben. Dank unserer Anschlüsse können Sie alle Beschattungen mit Auf-Ab Steuerung (Standard) integrieren.",
+      "Der Rohrmotor SOLIDline Air Funk-Rohrmotor mit integrierte Air Steuerung. - perfekt für Renovierer & Sanierer! Extra Stark mit 20Nm.",
+      "Geeignet für vorhandene Rollläden, Jalousien oder Markisen. Einfach mit den Hirschmannstecker dazwischen stecken und so integrieren Sie nahezu alle Beschattungen. Dank der bekannten Air Technologie mit gewohnt, geringem Verkabelungsaufwand."
+    ],
+    "fenster": [
+      "Mit dieser Auswahl können Sie ganz einfach vorhandene Fensterkontakte in das Loxone Smart Home einbinden. (Reedkontakte mit Öffner-oder Schließerfunktion)",
+      "Der batteriebetriebene Tür- & Fensterkontakt Air erkennt schnell und zuverlässig geöffnete/geschlossene Fenster und Türen. Nahtlos ins Loxone Smart Home integriert lassen sich mit ihm clevere Sicherheits- und Energiespar-Features realisieren.",
+      "Der batteriebetriebene Edelstahl-Fenstergriff Air erkennt schnell und zuverlässig geöffnete, geschlossene oder gekippte Fenster.  Zusätzlich erkennt er anhand eines Erschütterungssensors, ob jemand gewaltsam ins Haus eindringen will.",
+      "Mit dieser Auswahl erhälst du deinen Fensterkontakt inklusive einer Anbindung an unser exklusives Tree-System. So ist dein Fenster oder  Türe sicher, perfekt überwacht und intelligent."
+    ],
+  	"innentuer": [
+  		"Mit dem Loxone Touch steuern Sie jeden Raum mit nur einem kompakten Bedienelement. Mit 5 Taster, Temperatur-Luftfeuchtigkeitsensor und der Tree Technologie perfekt für jeden Raum",
+  		"Mit dem Edlen, rahmenlosen Design mit sensitiver, hochwertiger, Echtglas-Oberfläche. Damit bedienen Sie Beleuchtung, Beschattung und Zentralfunktionen in Ihrem Smart Home.  Mit 5 Taster, Temperatur-Luftfeuchtigkeitsensor und der Tree Technologie perfekt für jeden Raum",
+  		"Mit dieser Auswahl können Sie ganz einfach herkömmliche vorhandene Standardschalter sowie Taster in das Loxone Smart Home einbinden. (Öffner-oder Schließerfunktion)",
+  		"Mit dieser Auswahl hast du eine Anbindung an unser exklusives Tree-System. So ist dein Standardschalter sowie Taster perfekt integriert."
+  	],
+  	"raumregelung": [
+  		"Perfekt für die intelligente Raumtemperaturregelung. Hier hast du den Stellantrieb für deinen Heizkörper oder Fußbodenheizung inkl. externen Tempertur und Feuchtesensor. Einfache Installation dank der Anbindung an unser exklusives Tree-System",
+  		"Du möchtest deinen vorhanden Standard-Stellantrieb in dein Smart Home integrieren? Egal ob 230V, 24V, NC (Öffner) oder NO (Schließer). Die Temperatur und Feuchtemessung erfolgt über unseren Touch Tree.",
+      "Du erhältst edelstes Design mit der besten Raumregelung dank den Touch Pure Tree mit 5 Taster, Ambilight, Temperatur und Feuchtigkeitssensor. Natürlich dabei der Stellantrieb für Heizkörper oder Fußbodenheizung inklusive einer Anbindung an unser exklusives Tree-System.",
+  		"Der genauste Sensor \"Raumsensor Tree\"- Misst präzise Temperatur, Feuchte und Co2  . Naürlich dabei der Stellantrieb für Heizkörper oder Fußbodenheizung inklusive einer Anbindung an unser exklusives Tree-System."
+  	],
+  	"speaker": [
+  		"Perfekter Multimedia-Sound mit 2x unseren Loxone Stereo Speaker. Natürlich kannst du dir mehrere Speaker pro Raum integrieren. Inklusive den benötigten Loxone Verstärker und Music Server.",
+  		"Perfekter Multimedia-Sound inklusive den Einbaugehäuse für Betonbau und 2x Loxone Speaker. Natürlich kannst du dir mehrere Speaker pro Raum integrieren. Inklusive den benötigten Loxone Verstärker und Music Server.",
+  		"Perfekter Multimedia-Sound inklusive den Einbaugehäuse für Trockenbau und 2x Loxone Speaker. Natürlich kannst du dir mehrere Speaker pro Raum integrieren. Inklusive den benötigten Loxone Verstärker und Music Server."
+  	],
+  	"universalbeleuchtung": [
+  		"Mit dieser Auswahl integrierst du deine Standardleuchten mit 230V in dein Loxone Smart Home. Diese lassen sich dan über deinen Taster, App oder Bewegungsmelder Ein und Aus schalten.",
+  		"Mit dieser Auswahl integrierst du deine Standardleuchten mit 230V in dein Loxone Smart Home. Diese lassen sich dann perfekt Dimmen über deinen Taster, App oder Bewegungsmelder. Perfekt für Räume mit Nachtmodus, auch dank Softstart.",
+  		"Mit dieser Auswahl integrierst du deine Standardleuchten mit 24V in dein Loxone Smart Home. Diese lassen sich dann über deinen Taster, App oder Bewegungsmelder Ein und Aus schalten.",
+  		"Mit dieser Auswahl integrierst du deine Standardleuchten mit DC 24V in dein Loxone Smart Home. Diese lassen sich dann perfekt Dimmen über deinen Taster, App oder Bewegungsmelder. Perfekt für Räume mit Nachtmodus, auch dank Softstart.",
+  		"Falls du ob nicht aufgeführte Dinge Ein/Aus Schalten möchtes mit Leistung bis 230V (16A, max. 3680Watt)."
+  	],
+  	"loxone_lights": [
+  		"Perfekt für indirekte Beleuchtung.  Ermöglicht die einfache Steuerung von RGBW LED Beleuchtung inkl. RGBW LED Streifen. Dabei können Sie das Licht sowohl beliebig von 0-100% dimmen und in der Farbe individuell anpassen.",
+  		"Perfekt für alle Wohnräume. Die LED Spots RGBW mit gerichtetem warmweißen Licht und diffusem Farblicht sorgen für ein unvergleichliches Lichterlebnis in einem Real Smart Home. Perfekt und günstig zu verkablen dank Tree Technologie.",
+  		"Mit den LED Spots rücken Sie Ihre Wohnräume stets in das perfektes Licht. Durch das stufenlose Dimmverhalten, passt sich die Beleuchtung jeder Lebenssituation individuell an.",
+  		"Diffuses Licht sorgt für eine angenehme wie dezente Lichtstimmung und blendet nicht. Die Pendelleuchte lässt Sie dabei aus Millionen von Farben auswählen. Mit gerichteten bzw. gebündelten Licht erreichen Sie sowohl eine Strukturierung als auch Fokussierung auf einzelne Bereiche.",
+  		"Die LED Deckenleuchte übernimmt mit ihrem integrierte Bewegungsmelder viele Aufgaben und wird zum unauffälligen Mittelpunkt Ihres Beleuchtungskonzepts. Ob warmes, weißes Licht oder stimmungsvolle Farbbeleuchtung. Perfekt und günstig zu verkablen dank Tree Technologie."
+  	],
+  	"zentral": [
+  		"Die perfekte Zutrittslösung. Der NFC Code Touch bietet Ihnen die perfekte Lösung für Tür, Tor und Alarm. Egal ob im Innen- oder Außenbereich. ",
+  		"Der Bewegungsmelder Außen zeichnet sich durch einen hohen Erfassungsbereich von 230° aus. Perfekt für Licht, Sicherheit und integrierbar in dein Loxone Smart Home.",
+  		"Egal ob Sie Zuhause oder unterwegs sind, die Intercom bietet viele Möglichkeiten. Per Loxone Webinterface, oder den kostenlosen Loxone Apps für Tablet oder Smartphone sehen Sie, wer gerade vor Ihrer Tür steht und können mit Ihm reden."
+  	]
+  },
+  "miniserver_go": {
+  	"jalousie": [
+  		"Für alle, die bereits Rohrmotoren oder Antriebe haben. Dank unserer Anschlüsse können Sie alle Beschattung mit Auf-Ab Steuerung integrieren. Hier wird nur ein kleines Bauteil hinter den bestehenden Schalter gesetzt.",
+  		"Der Rohrmotor SOLIDline Air Funk-Rohrmotor mit integrierte Air Steuerung. - perfekt für Renovierer & Sanierer! Extra Stark mit 20Nm.",
+  		"Geeignet für vorhandene Rollläden, Jalousien oder Markisen. Einfach mit den Hirschmannstecker dazwischen stecken und so integrieren Sie nahezu alle Beschattungen. Dank der bekannten Air Technologie mit gewohnt, geringem Verkabelungsaufwand."
+  	],
+  	"fenster": [
+  		"Mit dieser Auswahl können Sie ganz einfach vorhandene Fensterkontakte in das Loxone Smart Home einbinden. (Reedkontakte mit Öffner-oder Schließerfunktion) Hier wird nur ein kleines Bauteil hinter den bestehenden Schalter in der Nähe gesetzt.",
+  		"Der batteriebetriebene Tür- & Fensterkontakt Air erkennt schnell und zuverlässig geöffnete/geschlossene Fenster und Türen. Nahtlos ins Loxone Smart Home integriert lassen sich mit ihm clevere Sicherheits- und Energiespar-Features realisieren.",
+  		"Der batteriebetriebene Edelstahl-Fenstergriff Air erkennt schnell und zuverlässig geöffnete, geschlossene oder gekippte Fenster.  Zusätzlich erkennt er anhand eines Erschütterungssensors, ob jemand gewaltsam ins Haus eindringen will."
+  	],
+  	"innentuer": [
+  		"Mit dem Loxone Touch (Batterie) steuern Sie jeden Raum mit nur einem kompakten Bedienelement. Mit 5 Taster, Temperatur-Luftfeuchtigkeitsensor und der Air Technologie perfekt für jeden Raum. Kann an jeder Wand im Haus montiert werden.",
+      "Mit dem Edlen, rahmenlosen Design mit sensitiver, hochwertiger, Echtglas-Oberfläche Touch Pure (Batterie). Damit bedienen Sie Beleuchtung, Beschattung und Zentralfunktionen in Ihrem Smart Home.  Mit 5 Taster, Temperatur-Luftfeuchtigkeitsensor und der Air Technologie perfekt für jeden Raum. Kann an jeder Wand im Haus montiert werden.",
+  		"Mit dem Loxone Touch steuern Sie jeden Raum mit nur einem kompakten Bedienelement. Mit 5 Taster und der Air Technologie perfekt für jeden Raum. Hier wird nur ein kleines Bauteil hinter den bestehenden Schalter gesetzt.",
+      "Du erhältst edelstes Design mit dem besten Schaltmöglichkeiten dank den Touch Pure. Mit 5 Taster, Ambilight und der Air Technologie perfekt für jeden Raum. Hier wird nur ein kleines Bauteil hinter den bestehenden Schalter gesetzt.",
+  		"Mit dieser Auswahl können Sie ganz einfach herkömmliche vorhandene Standardschalter sowie Taster in das Loxone Smart Home einbinden. (Öffner-oder Schließerfunktion) Hier wird nur ein kleines Bauteil hinter den bestehenden Schalter gesetzt."
+  	],
+  	"raumregelung": [
+  		"Perfekt für die intelligente Raumtemperaturregelung. Hier hast du den Stellantrieb für deinen Heizkörper inkl. Tempertursensor. Einfache Installation dank der Anbindung an unsers exklusiven Air-System",
+  		"Perfekt für die intelligente Raumtemperaturregelung. Hier hast du den Stellantrieb für deinen Heizkörper oder Fußbodenheizung inkl. externen Tempertur und Feuchtesensor. Einfache Installation dank der Anbindung an unseres exklusives Air-System",
+  		"Perfekt für die intelligente Raumtemperaturregelung. Hier hast du den Stellantrieb für deinen Heizkörper oder Fußbodenheizung inkl. externen Touch (Batterie) 5 Taster, Temperatur-Luftfeuchtigkeitsensor und der Air Technologie perfekt für jeden Raum. Kann an jeder Wand im Haus montiert werden.",
+      "Du erhältst edelstes Design mit der besten Raumregelung dank den Touch Pure Air (Batterie) mit 5 Tasten und Temperatur-Luftfeuchtigkeitsensor. Naürlich dabei der Stellantrieb für Heizkörper oder Fußbodenheizung inklusive einer Anbindung an unser exklusives Air-System."
+  	],
+  	"speaker": [
+      "Perfekter Multimedia-Sound mit 2x unseren Loxone Stereo Speaker. Natürlich kannst du dir mehrere Speaker pro Raum integrieren. Inklusive den benötigten Loxone Verstärker und Music Server.",
+  		"Perfekter Multimedia-Sound inklusive den Einbaugehäuse für Betonbau und 2x Loxone Speaker. Natürlich kannst du dir mehrere Speaker pro Raum integrieren. Inklusive den benötigten Loxone Verstärker und Music Server.",
+  		"Perfekter Multimedia-Sound inklusive den Einbaugehäuse für Trockenbau und 2x Loxone Speaker. Natürlich kannst du dir mehrere Speaker pro Raum integrieren. Inklusive den benötigten Loxone Verstärker und Music Server."
+  	],
+  	"universalbeleuchtung": [
+  		"Mit dieser Auswahl integrierst du deine Standardleuchten mit 230V in dein Loxone Smart Home. Diese lassen sich dan über deinen Taster, App oder Bewegungsmelder Ein und Aus schalten. Hier wird nur ein kleines Bauteil hinter den bestehenden Schalter in der Nähe gesetzt.",
+  		"Mit dieser Auswahl integrierst du deine Standardleuchten mit 230V in dein Loxone Smart Home. Diese lassen sich dann perfekt Dimmen über deinen Taster, App oder Bewegungsmelder. Perfekt für Räume mit Nachtmodus, auch dank Softstart. Hier wird nur ein kleines Bauteil hinter den bestehenden Schalter in der Nähe gesetzt.",
+  		"Mit dieser Auswahl integrierst du deine Standardleuchten mit 24V in dein Loxone Smart Home. Diese lassen sich dann über deinen Taster, App oder Bewegungsmelder Ein und Aus schalten. Hier wird nur ein kleines Bauteil in der Nähe der Leuchte gesetzt.",
+  		"Mit dieser Auswahl integrierst du deine Standardleuchten mit DC 24V in dein Loxone Smart Home. Diese lassen sich dann perfekt Dimmen über deinen Taster, App oder Bewegungsmelder. Perfekt für Räume mit Nachtmodus, auch dank Softstart. Hier wird nur ein kleines Bauteil in der Nähe der Leuchte gesetzt.",
+  		"Die Power-Steckdose zum schalten mit Stromverbrauchanzeige und Temperatursensor. (16A, max. 3680Watt)."
+  	],
+  	"loxone_lights": [
+  		"Perfekt für indirekte Beleuchtung.  Ermöglicht die einfache Steuerung von RGBW LED Beleuchtung inkl. RGBW LED Streifen. Dabei können Sie das Licht sowohl beliebig von 0-100% dimmen und in der Farbe individuell anpassen. Hier wird nur ein kleines Bauteil in der Nähe der Leuchte gesetzt.",
+  		"Perfekt für alle Wohnräume. Die LED Spots RGBW mit gerichtetem warmweißen Licht und diffusem Farblicht sorgen für ein unvergleichliches Lichterlebnis in einem Real Smart Home. Hier wird nur ein kleines Bauteil in der Nähe der Leuchte gesetzt.",
+  		"Mit den LED Spots rücken Sie Ihre Wohnräume stets in das perfektes Licht. Durch das stufenlose Dimmverhalten, passt sich die Beleuchtung jeder Lebenssituation individuell an. Hier wird nur ein kleines Bauteil in der Nähe der Leuchte gesetzt.",
+  		"Diffuses Licht sorgt für eine angenehme wie dezente Lichtstimmung und blendet nicht. Die Pendelleuchte lässt Sie dabei aus Millionen von Farben auswählen. Mit gerichteten bzw. gebündelten Licht erreichen Sie sowohl eine Strukturierung als auch Fokussierung auf einzelne Bereiche. Hier wird nur ein kleines Bauteil in der Nähe der Leuchte gesetzt.",
+  		"Die LED Deckenleuchte übernimmt mit ihrem integrierte Bewegungsmelder viele Aufgaben und wird zum unauffälligen Mittelpunkt Ihres Beleuchtungskonzepts. Ob warmes, weißes Licht oder stimmungsvolle Farbbeleuchtung. Perfekt und günstig zu verkablen dank Air Technologie."
+  	],
+  	"zentral": [
+  		"Die perfekte Zutrittslösung. Der NFC Code Touch bietet Ihnen die perfekte Lösung für Tür, Tor und Alarm. Egal ob im Innen- oder Außenbereich. Hier wird nur ein kleines Bauteil hinter den bestehenden Schalter gesetzt.",
+  		"Die perfekte Zutrittslösung. Der NFC Code Touch bietet Ihnen die perfekte Lösung für Tür, Tor und Alarm. Egal ob im Innen- oder Außenbereich. Hier wird nur ein kleines Bauteil hinter den bestehenden Schalter gesetzt.",
+  		"Egal ob Sie Zuhause oder unterwegs sind, die Intercom bietet viele Möglichkeiten. Per Loxone Webinterface, oder den kostenlosen Loxone Apps für Tablet oder Smartphone sehen Sie, wer gerade vor Ihrer Tür steht und können mit Ihm reden."
+  	]
+  }
+}

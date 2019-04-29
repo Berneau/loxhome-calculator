@@ -22,6 +22,12 @@ jQuery(document).ready( function() {
   
   jQuery('body').on('change', 'select[name="lxhm-article-type"]', function() {
     lxhmGetArticleOptions(this);
+    
+    lxhmResetTooltip(this);
+  });
+  
+  jQuery('body').on('change', 'select[name="lxhm-article-option"]', function() {
+    lxhmUpdateTooltip(this);
   });
   
   jQuery('body').on('change', 'select[name="lxhm-server-type"]', function() {
@@ -30,6 +36,10 @@ jQuery(document).ready( function() {
     lxhmResetArticleOptions();
     
     lxhmShowServerWarning();
+    
+    lxhmGetTooltips();
+    
+    lxhmResetTooltips();
     
     jQuery('select[name="lxhm-article-type"]').each(function() {
       lxhmGetArticleOptions(this);
@@ -134,4 +144,26 @@ function lxhmToast(type, message) {
       jQuery('#lxhm-toast-element').remove();
     }, 250);
   }, 3000);
+}
+
+function lxhmUpdateTooltip(optionSelect) {
+  optionSelect = jQuery(optionSelect);
+  var parent = optionSelect.parent();
+  var areaSelect = parent.children('select[name="lxhm-article-type"]');
+  var textTarget = parent.children('span.lxhm-tooltip').children('span.tooltip-text');
+  
+  if (!optionSelect.val() || !areaSelect.val() || !window.lxhmTooltips) return;
+  
+  var tooltip = window.lxhmTooltips[areaSelect.val()][optionSelect.val()-1];
+  textTarget.html(tooltip);
+}
+
+function lxhmResetTooltips() {
+  jQuery('.tooltip-text').html('Wählen Sie eine Option für nähere Informationen aus.');
+}
+
+function lxhmResetTooltip(areaElem) {
+  var parent = jQuery(areaElem).parent();
+  var tooltipElem = parent.children('.lxhm-tooltip').children('.tooltip-text');
+  tooltipElem.html('Wählen Sie eine Option für nähere Informationen aus.');
 }
